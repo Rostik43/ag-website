@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Контакты · АГ Проджект Групп</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Golos+Text:wght@400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {darkMode:"class",theme:{extend:{
+  "colors":{"primary":"#000000","tertiary":"#000000","secondary":"#5e5e5e","on-primary":"#ffffff","on-primary-container":"#858383","on-primary-fixed":"#c9c9c4","on-surface":"#1a1c1b","on-surface-variant":"#444748","on-secondary-container":"#646464","surface":"#f9f9f7","surface-container":"#eeeeec","surface-container-low":"#f4f4f2","background":"#f9f9f7","outline":"#747878","outline-variant":"#c4c7c7","tertiary-fixed":"#e3e3df"},
+  "borderRadius":{"DEFAULT":"0px","lg":"0px","xl":"0px","full":"9999px"},
+  "spacing":{"container-max":"1440px","unit":"4px","margin-desktop":"64px","gutter":"24px","margin-mobile":"20px"},
+  "fontFamily":{"display-lg":["Playfair Display","serif"],"body-lg":["Golos Text","sans-serif"],"headline-md":["Playfair Display","serif"],"label-sm":["Golos Text","sans-serif"],"headline-lg-mobile":["Playfair Display","serif"],"headline-lg":["Playfair Display","serif"],"body-md":["Golos Text","sans-serif"]},
+  "fontSize":{"display-lg":["72px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["48px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}]}
+}}}
+</script>
+<style>
+  body{font-family:'Golos Text',sans-serif;background:#f9f9f7;color:#1a1c1b;overflow-x:hidden;min-height:max(884px,100dvh)}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .reveal-on-scroll{opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+  .reveal-on-scroll.active{opacity:1;transform:translateY(0)}
+  input,textarea{background:transparent;border:0;border-bottom:1px solid #000;font-family:inherit;font-size:18px;color:#1a1c1b;width:100%;padding:14px 0;outline:none}
+  input::placeholder,textarea::placeholder{color:#747878;text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:600}
+  input:focus,textarea:focus{border-bottom-color:#000}
+</style>
+</head>
+<body class="bg-surface">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
+  <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+    <div class="flex items-center gap-4">
+      <span class="material-symbols-outlined text-primary cursor-pointer">grid_view</span>
+      <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-bold text-primary">АГ ПРОДЖЕКТ ГРУПП</a>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="portfolio.html">Проекты</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Практика</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Студия</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="contact.html">Контакты</a>
+    </nav>
+    <span class="material-symbols-outlined text-primary cursor-pointer md:hidden">menu</span>
+  </div>
+</header>
+
+<main class="pt-32">
+
+  <!-- Page header -->
+  <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
+    <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · КОНТАКТЫ</div>
+    <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-bold mb-8">Свяжитесь<br>с бюро.</h1>
+    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Мастерская на ул. Тарасова в центре Ижевска. Открыты к новым проектам, партнёрствам и разговорам об архитектуре.</p>
+  </section>
+
+  <!-- Contact grid: details / form -->
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+
+      <!-- Left: details -->
+      <div class="md:col-span-5 space-y-12">
+
+        <div class="border-t border-tertiary pt-6">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Адрес</span>
+          <p class="font-headline-md text-headline-md">426000, Ижевск<br>ул. Тарасова, 7</p>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">помещение НП23 · 2-й этаж</p>
+        </div>
+
+        <div class="border-t border-tertiary pt-6">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Email</span>
+          <a class="font-headline-md text-headline-md hover:text-secondary transition-colors block" href="mailto:hello@agproject.ru">hello@agproject.ru</a>
+        </div>
+
+        <div class="border-t border-tertiary pt-6">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Телефон</span>
+          <a class="font-headline-md text-headline-md hover:text-secondary transition-colors block" href="tel:+73412000000">+7 (3412) 00 — 00 — 00</a>
+        </div>
+
+        <div class="border-t border-tertiary pt-6">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Часы</span>
+          <p class="font-body-lg text-body-lg">Пн — Пт · 10:00 — 19:00</p>
+        </div>
+
+        <div class="border-t border-tertiary pt-6">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Координаты</span>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest">56.8431° N · 53.2114° E</p>
+          <div class="aspect-square bg-tertiary-fixed mt-4 overflow-hidden max-w-xs">
+            <img class="w-full h-full object-cover grayscale" src="circles/assets/projects/oktyabrskiy/03.jpg" alt="" style="filter:grayscale(1) contrast(1.1)">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: inquiry form -->
+      <div class="md:col-span-6 md:col-start-7">
+        <div class="border-t border-tertiary pt-6 mb-12">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Запрос</span>
+          <h2 class="font-headline-lg text-[40px] md:text-headline-lg uppercase tracking-tight font-bold">Расскажите про ваш проект.</h2>
+          <p class="font-body-md text-body-md text-secondary mt-4">Заполните форму — ответим в течение рабочего дня. Если задача срочная — позвоните.</p>
+        </div>
+
+        <form class="space-y-8">
+          <div>
+            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Имя и фамилия</label>
+            <input type="text" placeholder="ИМЯ И ФАМИЛИЯ"/>
+          </div>
+          <div>
+            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Email</label>
+            <input type="email" placeholder="EMAIL"/>
+          </div>
+          <div>
+            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Тип проекта</label>
+            <input type="text" placeholder="ЖИЛЬЁ / ИНТЕРЬЕР / ОБЩЕСТВЕННОЕ"/>
+          </div>
+          <div>
+            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Расскажите</label>
+            <textarea rows="4" placeholder="УЧАСТОК · СРОКИ · БЮДЖЕТ · ОЖИДАНИЯ"></textarea>
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-8 border-t border-tertiary">
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary max-w-xs">Отправляя форму, вы соглашаетесь на обработку персональных данных.</p>
+            <button type="submit" class="bg-primary text-on-primary px-12 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary transition-colors flex items-center gap-3">Отправить запрос<span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-surface border-t border-tertiary mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-6 md:px-margin-desktop py-12 max-w-container-max mx-auto">
+    <div><h2 class="font-headline-md text-headline-md uppercase font-bold text-primary mb-6">АГ•ПГ</h2><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 БЮРО. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p></div>
+    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Связь</h4><ul class="space-y-2"><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Telegram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Instagram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">VK</a></li></ul></div>
+    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Студия</h4><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest leading-loose">ул. Тарасова, 7<br/>426000 Ижевск<br/>Россия</p></div>
+    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Рассылка</h4><form class="flex border-b border-primary pb-2"><input class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm uppercase tracking-widest w-full" placeholder="ВАШ EMAIL" type="email"/><button class="material-symbols-outlined text-primary" type="submit">arrow_forward</button></form></div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+</script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="effects.js" defer></script>
+</body></html>

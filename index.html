@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>АГ Проджект Групп · Архитектурное бюро · Ижевск</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Golos+Text:wght@400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {darkMode:"class",theme:{extend:{
+  "colors":{"primary":"#000000","tertiary":"#000000","secondary":"#5e5e5e","on-primary":"#ffffff","on-primary-container":"#858383","on-primary-fixed":"#c9c9c4","on-surface":"#1a1c1b","on-surface-variant":"#444748","on-secondary-container":"#646464","on-tertiary-container":"#838481","surface":"#f9f9f7","surface-container":"#eeeeec","surface-container-low":"#f4f4f2","surface-container-lowest":"#ffffff","background":"#f9f9f7","outline":"#747878","outline-variant":"#c4c7c7","tertiary-fixed":"#e3e3df"},
+  "borderRadius":{"DEFAULT":"0px","lg":"0px","xl":"0px","full":"9999px"},
+  "spacing":{"container-max":"1440px","unit":"4px","margin-desktop":"64px","gutter":"24px","margin-mobile":"20px"},
+  "fontFamily":{"display-lg":["Playfair Display","serif"],"body-lg":["Golos Text","sans-serif"],"headline-md":["Playfair Display","serif"],"label-sm":["Golos Text","sans-serif"],"headline-lg-mobile":["Playfair Display","serif"],"headline-lg":["Playfair Display","serif"],"body-md":["Golos Text","sans-serif"]},
+  "fontSize":{"display-lg":["72px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["48px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}]}
+}}}
+</script>
+<style>
+  body{font-family:'Golos Text',sans-serif;background-color:#f9f9f7;color:#1a1c1b;overflow-x:hidden;min-height:max(884px,100dvh)}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .vertical-text{writing-mode:vertical-rl;text-orientation:mixed}
+  .reveal-on-scroll{opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+  .reveal-on-scroll.active{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body class="bg-surface">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
+  <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+    <div class="flex items-center gap-4">
+      <span class="material-symbols-outlined text-primary cursor-pointer">grid_view</span>
+      <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-bold text-primary">АГ ПРОДЖЕКТ ГРУПП</a>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="portfolio.html">Проекты</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Практика</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Студия</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="contact.html">Контакты</a>
+    </nav>
+    <span class="material-symbols-outlined text-primary cursor-pointer md:hidden">menu</span>
+  </div>
+</header>
+
+<main class="pt-32">
+
+  <!-- Hero -->
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+      <div class="md:col-span-1 hidden md:flex justify-center">
+        <span class="vertical-text font-label-sm text-label-sm uppercase tracking-widest text-secondary">ИЖЕВСК · УДМУРТИЯ · С 2014</span>
+      </div>
+      <div class="md:col-span-7">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-8">АРХИТЕКТУРНОЕ БЮРО · MANIFEST 2026</span>
+        <h2 class="font-display-lg text-[clamp(40px,5.5vw,80px)] leading-[0.95] uppercase tracking-tight font-bold">Тишина<br>как материал<br>архитектуры.</h2>
+      </div>
+      <div class="md:col-span-4">
+        <div class="aspect-[3/4] bg-tertiary-fixed overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="">
+        </div>
+        <div class="mt-3 flex justify-between font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+          <span>01 / БЕРЁЗОВАЯ РОЩА</span>
+          <span>2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Works Grid -->
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div class="flex justify-between items-end mb-16 border-b border-tertiary pb-4">
+      <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Избранные работы</h3>
+      <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">01 — 06 · ВСЕ 10 →</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      <a href="project.html?p=beryoza" class="reveal-on-scroll group block">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Берёзовая роща»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2026</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
+      </a>
+
+      <a href="project.html?p=len-cherepovets" class="reveal-on-scroll group block" style="transition-delay:100ms">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/len-cherepovets/02.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «ЛЕН»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2026</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Череповец</p>
+      </a>
+
+      <a href="project.html?p=ostrova" class="reveal-on-scroll group block" style="transition-delay:200ms">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ostrova/01.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Острова» №10</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
+      </a>
+
+      <a href="project.html?p=ezhevika" class="reveal-on-scroll group block">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ezhevika/dom-10/01.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Ежевика»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
+      </a>
+
+      <a href="project.html?p=sosedi" class="reveal-on-scroll group block" style="transition-delay:100ms">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/sosedi/dom-3-3/04.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Соседи»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
+      </a>
+
+      <a href="project.html?p=gorkogo" class="reveal-on-scroll group block" style="transition-delay:200ms">
+        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/gorkogo/01.jpg" alt="">
+        </div>
+        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК на М. Горького, 153</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2023</span></div>
+        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Philosophy / Black Section -->
+  <section class="bg-primary text-on-primary py-32 px-6 md:px-margin-desktop">
+    <div class="max-w-4xl mx-auto">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mb-8 block">Философия</span>
+      <h2 class="font-display-lg text-[40px] md:text-[72px] leading-tight mb-12 uppercase">Мы строим тишину. Мы создаём свет. Мы определяем эфемерное внутри постоянного.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-on-tertiary-container pt-12">
+        <p class="font-body-lg text-body-lg text-on-primary-fixed">Наш подход построен на убеждении: архитектура должна ощущаться так же, как видеться. Снимая лишнее — мы открываем суть места.</p>
+        <p class="font-body-lg text-body-lg text-on-primary-fixed">Каждая линия — решение. Каждая тень — материал. Мы работаем на пересечении математической точности и поэтического пространственного опыта.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-surface border-t border-tertiary mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-6 md:px-margin-desktop py-12 max-w-container-max mx-auto">
+    <div class="col-span-1 md:col-span-1">
+      <h2 class="font-headline-md text-headline-md uppercase font-bold text-primary mb-6">АГ•ПГ</h2>
+      <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 БЮРО. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+    </div>
+    <div class="col-span-1">
+      <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Связь</h4>
+      <ul class="space-y-2">
+        <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">Telegram</a></li>
+        <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">Instagram</a></li>
+        <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">VK</a></li>
+      </ul>
+    </div>
+    <div class="col-span-1">
+      <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Студия</h4>
+      <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest leading-loose">
+        ул. Тарасова, 7<br/>
+        426000 Ижевск<br/>
+        Россия
+      </p>
+    </div>
+    <div class="col-span-1">
+      <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Рассылка</h4>
+      <form class="flex border-b border-primary pb-2">
+        <input class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm uppercase tracking-widest w-full" placeholder="ВАШ EMAIL" type="email"/>
+        <button class="material-symbols-outlined text-primary" type="submit">arrow_forward</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+</script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="effects.js" defer></script>
+</body></html>
