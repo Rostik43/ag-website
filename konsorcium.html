@@ -24,8 +24,33 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   input::placeholder,textarea::placeholder{color:#747878;text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:600}
   input:focus,textarea:focus{border-bottom-color:#000}
 </style>
+<style>
+  /* preloader */
+  #preloader{position:fixed;inset:0;z-index:100;background:#f9f9f7;display:flex;align-items:center;justify-content:center;
+    transition:transform .6s cubic-bezier(.85,0,.15,1)}
+  #preloader.done{transform:translateY(-101%)}
+  #preloader .pl-word{font-family:'Barlow','Golos Text',sans-serif;font-weight:900;text-transform:uppercase;
+    letter-spacing:-.02em;font-size:clamp(28px,5vw,64px);color:#000;display:flex}
+  #preloader .pl-word span{opacity:0;transform:translateY(12px);animation:plIn .5s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes plIn{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    #preloader .pl-word span{animation:none;opacity:1;transform:none}
+    #preloader{transition:none}}
+</style>
 </head>
 <body class="bg-surface">
+
+<div id="preloader" aria-hidden="true"><div class="pl-word"><span style="animation-delay:0ms">A</span><span style="animation-delay:35ms">G</span><span style="animation-delay:70ms">&nbsp;</span><span style="animation-delay:105ms">P</span><span style="animation-delay:140ms">R</span><span style="animation-delay:175ms">O</span><span style="animation-delay:210ms">J</span><span style="animation-delay:245ms">E</span><span style="animation-delay:280ms">C</span><span style="animation-delay:315ms">T</span><span style="animation-delay:350ms">&nbsp;</span><span style="animation-delay:385ms">G</span><span style="animation-delay:420ms">R</span><span style="animation-delay:455ms">O</span><span style="animation-delay:490ms">U</span><span style="animation-delay:525ms">P</span></div></div>
+<script>
+  (function(){
+    var pl=document.getElementById('preloader');
+    if(sessionStorage.getItem('agpl')){pl.remove();return;}
+    sessionStorage.setItem('agpl','1');
+    var hide=function(){pl.classList.add('done');setTimeout(function(){pl.remove();},700);};
+    window.addEventListener('load',function(){setTimeout(hide,900);});
+    setTimeout(hide,2500); /* страховка: убрать занавес, даже если load не пришёл */
+  })();
+</script>
 
 <header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
   <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
