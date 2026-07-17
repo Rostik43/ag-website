@@ -27,18 +27,28 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
   <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
     <div class="flex items-center gap-4">
-      <span class="material-symbols-outlined text-primary cursor-pointer">grid_view</span>
+      <span class="material-symbols-outlined text-primary">grid_view</span>
       <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-black text-primary">AG PROJECT GROUP</a>
     </div>
-    <nav class="hidden md:flex gap-8">
+    <nav class="hidden md:flex gap-8 items-center">
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="portfolio.html">Проекты</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Практика</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Студия</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="contact.html">Контакты</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="konsorcium.html">Консорциум</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="buro.html">Бюро</a>
+      <a class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-5 py-3 hover:bg-secondary transition-colors" href="contact.html">Обсудить проект</a>
     </nav>
-    <span class="material-symbols-outlined text-primary cursor-pointer md:hidden">menu</span>
+    <button id="menuBtn" class="material-symbols-outlined text-primary md:hidden" aria-label="Открыть меню">menu</button>
   </div>
 </header>
+
+<div id="mobileMenu" class="hidden fixed inset-0 z-40 bg-surface pt-28 px-6 md:hidden">
+  <nav class="flex flex-col gap-7 border-t border-tertiary pt-10">
+    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="portfolio.html">Проекты</a>
+    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="konsorcium.html">Консорциум</a>
+    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="buro.html">Бюро</a>
+    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="contact.html">Контакты</a>
+    <a class="bg-primary text-on-primary px-6 py-4 font-label-sm text-label-sm uppercase tracking-widest w-max mt-4" href="contact.html">Обсудить проект</a>
+  </nav>
+</div>
 
 <main class="pt-32">
 
@@ -164,4 +174,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 <script src="effects.js" defer></script>
+<script>
+  const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+  if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{
+    const open=!mobileMenu.classList.toggle('hidden');
+    menuBtn.textContent=open?'close':'menu';
+    document.body.style.overflow=open?'hidden':'';
+  });}
+</script>
 </body></html>

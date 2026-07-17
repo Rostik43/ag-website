@@ -2,7 +2,7 @@
 <html class="light" lang="ru"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Контакты · AG Project Group</title>
+<title>Бюро · AG Project Group</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700;900&amp;family=Golos+Text:wght@400..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -36,7 +36,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     <nav class="hidden md:flex gap-8 items-center">
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="portfolio.html">Проекты</a>
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="konsorcium.html">Консорциум</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="buro.html">Бюро</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="buro.html">Бюро</a>
       <a class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-5 py-3 hover:bg-secondary transition-colors" href="contact.html">Обсудить проект</a>
     </nav>
     <button id="menuBtn" class="material-symbols-outlined text-primary md:hidden" aria-label="Открыть меню">menu</button>
@@ -57,81 +57,48 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
   <!-- Page header -->
   <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
-    <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · КОНТАКТЫ</div>
-    <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-black mb-8">Свяжитесь<br>с бюро.</h1>
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Мастерская на ул. Тарасова в центре Ижевска. Открыты к новым проектам, партнёрствам и разговорам об архитектуре.</p>
+    <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · БЮРО</div>
+    <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-black mb-8">Бюро.</h1>
+    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Архитектурное бюро в Ижевске. Проектируем жилые дома и кварталы с 2014 года — от градостроительной концепции до рабочей документации и авторского надзора.</p>
   </section>
 
-  <!-- Contact grid: details / form -->
+  <!-- Manifesto -->
   <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-
-      <!-- Left: details -->
-      <div class="md:col-span-5 space-y-12">
-
-        <div class="border-t border-tertiary pt-6">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Адрес</span>
-          <p class="font-headline-md text-headline-md">426000, Ижевск<br>ул. Тарасова, 7</p>
-          <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">помещение НП23 · 2-й этаж</p>
-        </div>
-
-        <div class="border-t border-tertiary pt-6">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Email</span>
-          <a class="font-headline-md text-headline-md hover:text-secondary transition-colors block" href="mailto:hello@agproject.ru">hello@agproject.ru</a>
-        </div>
-
-        <div class="border-t border-tertiary pt-6">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Телефон</span>
-          <a class="font-headline-md text-headline-md hover:text-secondary transition-colors block" href="tel:+73412000000">+7 (3412) 00 — 00 — 00</a>
-        </div>
-
-        <div class="border-t border-tertiary pt-6">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Часы</span>
-          <p class="font-body-lg text-body-lg">Пн — Пт · 10:00 — 19:00</p>
-        </div>
-
-        <div class="border-t border-tertiary pt-6">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Координаты</span>
-          <p class="font-label-sm text-label-sm uppercase tracking-widest">56.8431° N · 53.2114° E</p>
-          <div class="aspect-square bg-tertiary-fixed mt-4 overflow-hidden max-w-xs">
-            <img class="w-full h-full object-cover grayscale" src="circles/assets/projects/oktyabrskiy/03.jpg" alt="" style="filter:grayscale(1) contrast(1.1)">
-          </div>
-        </div>
-
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+      <div class="md:col-span-7">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-8">Манифест</span>
+        <h2 class="font-display-lg text-[clamp(36px,4.5vw,64px)] leading-[0.95] uppercase tracking-tight font-black">Тишина<br>как материал<br>архитектуры.</h2>
       </div>
-
-      <!-- Right: inquiry form -->
-      <div class="md:col-span-6 md:col-start-7">
-        <div class="border-t border-tertiary pt-6 mb-12">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-3">Запрос</span>
-          <h2 class="font-headline-lg text-[40px] md:text-headline-lg uppercase tracking-tight font-black">Расскажите про ваш проект.</h2>
-          <p class="font-body-md text-body-md text-secondary mt-4">Заполните форму — ответим в течение рабочего дня. Если задача срочная — позвоните.</p>
+      <div class="md:col-span-4 md:col-start-9">
+        <div class="aspect-[3/4] bg-tertiary-fixed overflow-hidden">
+          <img class="w-full h-full object-cover grayscale" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="ЖК «Берёзовая роща»">
         </div>
-
-        <form class="space-y-8">
-          <div>
-            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Имя и фамилия</label>
-            <input type="text" placeholder="ИМЯ И ФАМИЛИЯ"/>
-          </div>
-          <div>
-            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Email</label>
-            <input type="email" placeholder="EMAIL"/>
-          </div>
-          <div>
-            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Тип проекта</label>
-            <input type="text" placeholder="ЖИЛЬЁ / ИНТЕРЬЕР / ОБЩЕСТВЕННОЕ"/>
-          </div>
-          <div>
-            <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2">Расскажите</label>
-            <textarea rows="4" placeholder="УЧАСТОК · СРОКИ · БЮДЖЕТ · ОЖИДАНИЯ"></textarea>
-          </div>
-          <div class="flex items-center justify-between gap-6 pt-8 border-t border-tertiary">
-            <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary max-w-xs">Отправляя форму, вы соглашаетесь на обработку персональных данных.</p>
-            <button type="submit" class="bg-primary text-on-primary px-12 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary transition-colors flex items-center gap-3">Отправить запрос<span class="material-symbols-outlined text-sm">arrow_forward</span></button>
-          </div>
-        </form>
+        <div class="mt-3 flex justify-between font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+          <span>БЕРЁЗОВАЯ РОЩА</span><span>2026</span>
+        </div>
       </div>
+    </div>
+  </section>
 
+  <!-- Facts -->
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8">
+      <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">2014</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Год основания</p></div>
+      <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">10</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Объектов</p></div>
+      <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">2</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Города</p></div>
+      <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">РД</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Полный цикл</p></div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="bg-primary text-on-primary py-32 px-6 md:px-margin-desktop mb-0">
+    <div class="max-w-4xl mx-auto">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mb-8 block">Философия</span>
+      <h2 class="font-display-lg text-[36px] md:text-[64px] leading-tight mb-12 uppercase font-black">Мы строим тишину. Мы создаём свет. Мы определяем эфемерное внутри постоянного.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-on-tertiary-container pt-12">
+        <p class="font-body-lg text-body-lg text-on-primary-fixed">Наш подход построен на убеждении: архитектура должна ощущаться так же, как видеться. Снимая лишнее — мы открываем суть места.</p>
+        <p class="font-body-lg text-body-lg text-on-primary-fixed">Каждая линия — решение. Каждая тень — материал. Мы работаем на пересечении математической точности и поэтического пространственного опыта.</p>
+      </div>
     </div>
   </section>
 
