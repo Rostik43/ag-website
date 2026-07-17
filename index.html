@@ -2,16 +2,16 @@
 <html class="light" lang="ru"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>АГ Проджект Групп · Архитектурное бюро · Ижевск</title>
+<title>AG Project Group · Архитектурное бюро · Ижевск</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Golos+Text:wght@400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700;900&amp;family=Golos+Text:wght@400..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {darkMode:"class",theme:{extend:{
   "colors":{"primary":"#000000","tertiary":"#000000","secondary":"#5e5e5e","on-primary":"#ffffff","on-primary-container":"#858383","on-primary-fixed":"#c9c9c4","on-surface":"#1a1c1b","on-surface-variant":"#444748","on-secondary-container":"#646464","on-tertiary-container":"#838481","surface":"#f9f9f7","surface-container":"#eeeeec","surface-container-low":"#f4f4f2","surface-container-lowest":"#ffffff","background":"#f9f9f7","outline":"#747878","outline-variant":"#c4c7c7","tertiary-fixed":"#e3e3df"},
   "borderRadius":{"DEFAULT":"0px","lg":"0px","xl":"0px","full":"9999px"},
   "spacing":{"container-max":"1440px","unit":"4px","margin-desktop":"64px","gutter":"24px","margin-mobile":"20px"},
-  "fontFamily":{"display-lg":["Playfair Display","serif"],"body-lg":["Golos Text","sans-serif"],"headline-md":["Playfair Display","serif"],"label-sm":["Golos Text","sans-serif"],"headline-lg-mobile":["Playfair Display","serif"],"headline-lg":["Playfair Display","serif"],"body-md":["Golos Text","sans-serif"]},
+  "fontFamily":{"display-lg":["Barlow","Golos Text","sans-serif"],"body-lg":["Golos Text","sans-serif"],"headline-md":["Barlow","Golos Text","sans-serif"],"label-sm":["Golos Text","sans-serif"],"headline-lg-mobile":["Barlow","Golos Text","sans-serif"],"headline-lg":["Barlow","Golos Text","sans-serif"],"body-md":["Golos Text","sans-serif"]},
   "fontSize":{"display-lg":["72px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["48px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}]}
 }}}
 </script>
@@ -29,7 +29,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
     <div class="flex items-center gap-4">
       <span class="material-symbols-outlined text-primary cursor-pointer">grid_view</span>
-      <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-bold text-primary">АГ ПРОДЖЕКТ ГРУПП</a>
+      <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-black text-primary">AG PROJECT GROUP</a>
     </div>
     <nav class="hidden md:flex gap-8">
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="portfolio.html">Проекты</a>
@@ -43,34 +43,8 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
 <main class="pt-32">
 
-  <!-- Hero -->
+  <!-- Projects Grid: главная начинается с фотографий объектов -->
   <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
-      <div class="md:col-span-1 hidden md:flex justify-center">
-        <span class="vertical-text font-label-sm text-label-sm uppercase tracking-widest text-secondary">ИЖЕВСК · УДМУРТИЯ · С 2014</span>
-      </div>
-      <div class="md:col-span-7">
-        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-8">АРХИТЕКТУРНОЕ БЮРО · MANIFEST 2026</span>
-        <h2 class="font-display-lg text-[clamp(40px,5.5vw,80px)] leading-[0.95] uppercase tracking-tight font-bold">Тишина<br>как материал<br>архитектуры.</h2>
-      </div>
-      <div class="md:col-span-4">
-        <div class="aspect-[3/4] bg-tertiary-fixed overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="">
-        </div>
-        <div class="mt-3 flex justify-between font-label-sm text-label-sm uppercase tracking-widest text-secondary">
-          <span>01 / БЕРЁЗОВАЯ РОЩА</span>
-          <span>2026</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected Works Grid -->
-  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="flex justify-between items-end mb-16 border-b border-tertiary pb-4">
-      <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Избранные работы</h3>
-      <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">01 — 06 · ВСЕ 10 →</span>
-    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 
       <a href="project.html?p=beryoza" class="reveal-on-scroll group block">
@@ -124,24 +98,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     </div>
   </section>
 
-  <!-- Philosophy / Black Section -->
-  <section class="bg-primary text-on-primary py-32 px-6 md:px-margin-desktop">
-    <div class="max-w-4xl mx-auto">
-      <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mb-8 block">Философия</span>
-      <h2 class="font-display-lg text-[40px] md:text-[72px] leading-tight mb-12 uppercase">Мы строим тишину. Мы создаём свет. Мы определяем эфемерное внутри постоянного.</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-on-tertiary-container pt-12">
-        <p class="font-body-lg text-body-lg text-on-primary-fixed">Наш подход построен на убеждении: архитектура должна ощущаться так же, как видеться. Снимая лишнее — мы открываем суть места.</p>
-        <p class="font-body-lg text-body-lg text-on-primary-fixed">Каждая линия — решение. Каждая тень — материал. Мы работаем на пересечении математической точности и поэтического пространственного опыта.</p>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer class="bg-surface border-t border-tertiary mt-auto">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-6 md:px-margin-desktop py-12 max-w-container-max mx-auto">
     <div class="col-span-1 md:col-span-1">
-      <h2 class="font-headline-md text-headline-md uppercase font-bold text-primary mb-6">АГ•ПГ</h2>
+      <h2 class="font-headline-md text-headline-md uppercase font-bold text-primary mb-6">AG•PG</h2>
       <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 БЮРО. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
     </div>
     <div class="col-span-1">
