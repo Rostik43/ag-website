@@ -186,10 +186,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     max = intro.offsetHeight * 0.72;
     big.style.position = 'fixed'; big.style.left = '0'; big.style.top = '0';
     big.style.transformOrigin = 'left top'; big.style.willChange = 'transform';
+    big.style.zIndex = '60'; /* над шапкой (z-50): имя въезжает в блок поверх фона */
     update();
   }
 
   function update() {
+    const mm = document.getElementById('mobileMenu');
+    if (mm && !mm.classList.contains('hidden')) { big.style.visibility = 'hidden'; return; }
     const p = Math.min(1, Math.max(0, scrollY / max));
     const e = 1 - Math.pow(1 - p, 3); /* easeOutCubic */
     if (p >= 1) {
@@ -205,6 +208,8 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       big.style.transform = `translate(${x}px, ${y}px) scale(${s2})`;
     }
   }
+  const mBtn = document.getElementById('menuBtn');
+  if (mBtn) mBtn.addEventListener('click', update); /* слушатели идут по порядку: меню уже переключено */
   addEventListener('scroll', update, {passive: true});
   addEventListener('resize', measure);
   addEventListener('load', measure);
