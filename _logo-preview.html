@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700;900&family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f9f9f7;font-family:'Golos Text',sans-serif;color:#000}
+.row{border-bottom:1px solid #000;padding:0 40px}
+.bar{display:flex;justify-content:space-between;align-items:center;max-width:1440px;margin:0 auto;height:80px}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font:600 11px/1 'Golos Text';letter-spacing:.18em;text-transform:uppercase;color:#5e5e5e;text-decoration:none}
+.cta{background:#000;color:#fff;padding:11px 16px}
+.wordmark{font-family:'Barlow','Golos Text';font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:-.01em}
+.label{font:600 11px/1 'Golos Text';letter-spacing:.2em;text-transform:uppercase;color:#8a8a84;padding:22px 40px 6px;max-width:1440px;margin:0 auto}
+.left{display:flex;align-items:center;gap:14px}
+.icon-grid{width:28px;height:28px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px}
+.icon-grid i{background:#000;display:block}
+</style></head><body>
+
+<div class="label">Вариант A · полный логотип (монограмма + project group)</div>
+<div class="row"><div class="bar">
+  <div class="left"><img src="assets/logo/logo-full.png" style="height:52px"></div>
+  <nav class="nav"><a>Проекты</a><a>Консорциум</a><a>Дизайн-проекты</a><a>Конкурсы</a><a>Бюро</a><a class="cta">Обсудить проект</a></nav>
+</div></div>
+
+<div class="label">Вариант B · монограмма AG + текст названия</div>
+<div class="row"><div class="bar">
+  <div class="left"><img src="assets/logo/logo-mono.png" style="height:34px"><span class="wordmark">AG Project Group</span></div>
+  <nav class="nav"><a>Проекты</a><a>Консорциум</a><a>Дизайн-проекты</a><a>Конкурсы</a><a>Бюро</a><a class="cta">Обсудить проект</a></nav>
+</div></div>
+
+<div class="label">Вариант C · только монограмма AG</div>
+<div class="row"><div class="bar">
+  <div class="left"><img src="assets/logo/logo-mono.png" style="height:40px"></div>
+  <nav class="nav"><a>Проекты</a><a>Консорциум</a><a>Дизайн-проекты</a><a>Конкурсы</a><a>Бюро</a><a class="cta">Обсудить проект</a></nav>
+</div></div>
+
+<div class="label">Сейчас (для сравнения) · иконка-сетка + текст</div>
+<div class="row"><div class="bar">
+  <div class="left"><span class="icon-grid"><i></i><i></i><i></i><i></i></span><span class="wordmark">AG Project Group</span></div>
+  <nav class="nav"><a>Проекты</a><a>Консорциум</a><a>Дизайн-проекты</a><a>Конкурсы</a><a>Бюро</a><a class="cta">Обсудить проект</a></nav>
+</div></div>
+
+<div class="label">Сами логотипы крупно</div>
+<div style="padding:40px;display:flex;gap:60px;align-items:center;flex-wrap:wrap">
+  <img src="assets/logo/logo-full.png" style="height:180px">
+  <img src="assets/logo/logo-mono.png" style="height:120px">
+</div>
+
+</body></html>
