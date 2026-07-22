@@ -34,11 +34,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       <span class="material-symbols-outlined text-primary">grid_view</span>
       <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-black text-primary">AG PROJECT GROUP</a>
     </div>
-    <nav class="hidden md:flex gap-8 items-center">
+    <nav class="hidden md:flex gap-6 items-center">
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="portfolio.html">Проекты</a>
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="konsorcium.html">Консорциум</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="dizain-proekty.html">Дизайн-проекты</a>
+      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="konkursy.html">Конкурсы</a>
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="buro.html">Бюро</a>
-      <a class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-5 py-3 hover:bg-secondary transition-colors" href="contact.html">Обсудить проект</a>
+      <a class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-4 py-3 hover:bg-secondary transition-colors" href="contact.html">Обсудить проект</a>
     </nav>
     <button id="menuBtn" class="material-symbols-outlined text-primary md:hidden" aria-label="Открыть меню">menu</button>
   </div>
@@ -46,10 +48,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
 <div id="mobileMenu" class="hidden fixed inset-0 z-40 bg-surface pt-28 px-6 md:hidden">
   <nav class="flex flex-col gap-7 border-t border-tertiary pt-10">
-    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="portfolio.html">Проекты</a>
-    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="konsorcium.html">Консорциум</a>
-    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="buro.html">Бюро</a>
-    <a class="font-display-lg text-[34px] leading-none uppercase tracking-tight font-black" href="contact.html">Контакты</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="portfolio.html">Проекты</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="konsorcium.html">Консорциум</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="dizain-proekty.html">Дизайн-проекты</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="konkursy.html">Конкурсы</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="buro.html">Бюро</a>
+    <a class="font-display-lg text-[32px] leading-none uppercase tracking-tight font-black" href="contact.html">Контакты</a>
     <a class="bg-primary text-on-primary px-6 py-4 font-label-sm text-label-sm uppercase tracking-widest w-max mt-4" href="contact.html">Обсудить проект</a>
   </nav>
 </div>
@@ -88,6 +92,156 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">10</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Объектов</p></div>
       <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">2</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Города</p></div>
       <div><p class="font-display-lg text-[48px] md:text-[72px] font-black leading-none">РД</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-2">Полный цикл</p></div>
+    </div>
+  </section>
+
+
+  <!-- Team -->
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div class="flex justify-between items-end mb-10 border-t border-tertiary pt-6">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Команда</span>
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">13 человек</span>
+    </div>
+
+    <!-- Общий кадр -->
+    <figure class="reveal-on-scroll group mb-24">
+      <div class="overflow-hidden relative bg-tertiary-fixed">
+        <img class="w-full object-cover" src="assets/team/group-bw.jpg" alt="Команда AG Project Group">
+        <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" src="assets/team/group.jpg" alt="" aria-hidden="true">
+      </div>
+      <figcaption class="mt-3 flex justify-between font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+        <span>Полный состав бюро</span><span>Ижевск</span>
+      </figcaption>
+    </figure>
+
+    <!-- Основатели -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24">
+      <figure class="md:col-span-5 reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/founders-bw.jpg" alt="Николай и Ирина Глазырины">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/founders.jpg" alt="" aria-hidden="true">
+        </div>
+      </figure>
+      <div class="md:col-span-6 md:col-start-7">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-6">Основатели</span>
+        <h3 class="font-display-lg text-[28px] md:text-[44px] leading-tight uppercase tracking-tight font-black mb-6">Николай и Ирина Глазырины</h3>
+        <p class="font-body-lg text-body-lg text-secondary mb-4">Руководитель бюро и главный архитектор. Основали бюро в 2014 году — и по-прежнему лично ведут каждый объект от эскиза до ввода.</p>
+        <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Николай — руководитель бюро · Ирина — главный архитектор</p>
+      </div>
+    </div>
+
+    <!-- Сетка команды -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/garanin-bw.jpg" alt="Илья Гаранин" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/garanin.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Илья Гаранин</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный инженер · партнёр</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/dyageleva-bw.jpg" alt="Ирина Дягелева" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/dyageleva.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Ирина Дягелева</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный архитектор проекта</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/shutova-bw.jpg" alt="Разиля Шутова" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/shutova.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Разиля Шутова</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный архитектор проекта</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/shepeleva-bw.jpg" alt="Анастасия Шепелева" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/shepeleva.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Анастасия Шепелева</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Ведущий архитектор</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/kropacheva-bw.jpg" alt="Лейсания Кропачева" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/kropacheva.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Лейсания Кропачева</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Ведущий инженер</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/novikova-bw.jpg" alt="Александра Новикова" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/novikova.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Александра Новикова</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор · BIM-менеджер</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/ryabchikov-bw.jpg" alt="Георгий Рябчиков" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/ryabchikov.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Георгий Рябчиков</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/maksimova-bw.jpg" alt="Юлия Максимова" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/maksimova.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Юлия Максимова</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/merzlyakova-bw.jpg" alt="Дарья Мерзлякова" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/merzlyakova.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Дарья Мерзлякова</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Инженер</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/lekoncev-bw.jpg" alt="Сергей Леконцев" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/lekoncev.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Сергей Леконцев</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Техник-архитектор</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/nabiev-bw.jpg" alt="Даниль Набиев" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/nabiev.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Даниль Набиев</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Техник-архитектор</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
