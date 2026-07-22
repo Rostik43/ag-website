@@ -69,27 +69,29 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 </footer>
 
 <script src="projects-data.js"></script>
+<script src="consortium-data.js"></script>
 <script>
 (function(){
-  const P = window.AG_PROJECTS || [];
+  const MAIN = window.AG_PROJECTS || [], CONS = window.AG_CONSORTIUM || [];
+  const P = MAIN.concat(CONS);
   const byslug = Object.fromEntries(P.map(o=>[o.slug,o]));
 
   function render(){
     const slug = new URLSearchParams(location.search).get('p');
-    const idx = P.findIndex(o=>o.slug===slug);
     const p = byslug[slug] || P[0];
-    const i = idx>=0 ? idx : 0;
+    const SET = p.set==='consortium' ? CONS : MAIN;
+    const i = SET.findIndex(o=>o.slug===p.slug);
     document.title = `${p.name} · AG Project Group`;
 
     const hero = `${p.dir}/${p.photos[0]}`;
     const gallery = p.photos.slice(1);
-    const prev = P[(i - 1 + P.length) % P.length];
-    const next = P[(i + 1) % P.length];
+    const prev = SET[(i - 1 + SET.length) % SET.length];
+    const next = SET[(i + 1) % SET.length];
     const crumb = p.name.replace(/[«»]/g,'').toUpperCase();
 
     const facts = [
       ['Статус', p.status], ['Годы', p.years],
-      ['Заказчик', p.client], ['Тип', p.category + ' · ' + p.region],
+      ['Заказчик', p.client], p.set==='consortium' ? ['Роль','Консорциум · ГАП '+p.gap] : ['Тип', p.category + ' · ' + p.region],
     ];
     const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
