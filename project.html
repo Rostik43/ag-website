@@ -127,6 +127,17 @@ tailwind.config = {darkMode:"class",theme:{extend:{
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">${galleryHtml}</div>
       </section>` : ''}
 
+      ${(p.built && p.built.length) ? `<section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+        <div class="flex justify-between items-end mb-10 border-b border-tertiary pb-4">
+          <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Как построено</h3>
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Реализация · ${p.built.length} фото</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">${p.built.map((f,bi)=>`
+          <div class="reveal-on-scroll" style="transition-delay:${(bi%3)*100}ms">
+            <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${p.builtDir}/${f}" alt="Реализация · ${p.name}" loading="lazy"></div>
+          </div>`).join('')}</div>
+      </section>` : ''}
+
       <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <a href="project.html?p=${prev.slug}" class="reveal-on-scroll group block">
