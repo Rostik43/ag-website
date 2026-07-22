@@ -110,7 +110,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
         <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6">
           <a href="index.html" class="hover:text-primary">Главная</a> · <a href="portfolio.html" class="hover:text-primary">Проекты</a> · ${crumb}
         </div>
-        <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-black mb-6">${p.name}</h1>
+        <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-medium mb-6">${p.name}</h1>
         <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? p.type : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">${factsHtml}</div>
       </section>
