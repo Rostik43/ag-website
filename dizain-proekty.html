@@ -67,14 +67,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Интерьеры мест общего пользования и благоустройство дворов: входные группы, лобби, дворовые пространства жилых комплексов.</p>
   </section>
 
-  <!-- Empty state until AG provides the list -->
-  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="border-t border-tertiary pt-8">
-      <p class="font-body-lg text-body-lg text-secondary">Подборку дизайн-проектов готовим к публикации.</p>
-      <a class="inline-block mt-8 bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary transition-colors" href="contact.html">Написать нам</a>
-    </div>
-  </section>
 
+  <section class="px-6 md:px-margin-desktop mb-16 max-w-container-max mx-auto">
+    <div id="dfilters" class="flex flex-wrap gap-x-6 gap-y-3 items-center border-t border-b border-tertiary py-4"></div>
+  </section>
+  <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+    <div id="dgrid" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
+  </section>
 </main>
 
 <footer class="bg-surface border-t border-tertiary mt-auto">
@@ -99,5 +98,24 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     menuBtn.textContent=open?'close':'menu';
     document.body.style.overflow=open?'hidden':'';
   });}
+</script>
+<script src="design-data.js"></script>
+<script>
+(function(){
+  const P=window.AG_DESIGN||[], grid=document.getElementById('dgrid'), fl=document.getElementById('dfilters');
+  const F=[['all','Все',p=>true],['mop','Интерьеры МОП',p=>p.type==='Интерьеры МОП'],['dvor','Благоустройство',p=>p.type==='Благоустройство двора']];
+  let act='all';
+  function card(p,i){return `<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
+    <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy"></div>
+    <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4></div>
+    <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.type}</p></a>`;}
+  function grd(){const f=F.find(x=>x[0]===act)[2];grid.innerHTML=P.filter(f).map(card).join('');
+    const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    grid.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));}
+  function flt(){fl.innerHTML=F.map(([k,l,f])=>{const n=P.filter(f).length;const c=k===act?'text-primary border-b-2 border-primary':'text-secondary hover:text-primary';
+    return `<button data-k="${k}" class="font-label-sm text-label-sm uppercase tracking-widest ${c} pb-1 transition-colors">${l} · ${n}</button>`;}).join('');
+    fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{act=b.dataset.k;flt();grd();});}
+  flt();grd();
+})();
 </script>
 </body></html>

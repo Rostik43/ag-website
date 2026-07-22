@@ -61,18 +61,9 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <main class="pt-32">
 
   <!-- Page header -->
-  <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
-    <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · КОНКУРСЫ</div>
-    <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-black mb-8">Конкурсы и концепции.</h1>
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Конкурсные проекты и градостроительные концепции бюро — идеи, с которых начинаются будущие кварталы.</p>
-  </section>
-
-  <!-- Empty state until AG provides the list -->
   <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="border-t border-tertiary pt-8">
-      <p class="font-body-lg text-body-lg text-secondary">Подборку конкурсных работ готовим к публикации.</p>
-      <a class="inline-block mt-8 bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary transition-colors" href="contact.html">Написать нам</a>
-    </div>
+    <div class="border-t border-tertiary pt-6 mb-10"><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Конкурсные проекты и концепции</span></div>
+    <div id="kgrid" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
   </section>
 
 </main>
@@ -99,5 +90,17 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     menuBtn.textContent=open?'close':'menu';
     document.body.style.overflow=open?'hidden':'';
   });}
+</script>
+<script src="konkurs-data.js"></script>
+<script>
+(function(){
+  const P=window.AG_KONKURS||[], g=document.getElementById('kgrid'); if(!g)return;
+  g.innerHTML=P.map((p,i)=>`<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
+    <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy"></div>
+    <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">${p.year||''}</span></div>
+    <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.status}</p></a>`).join('');
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  g.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+})();
 </script>
 </body></html>

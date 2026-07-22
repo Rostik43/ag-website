@@ -70,16 +70,18 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
 <script src="projects-data.js"></script>
 <script src="consortium-data.js"></script>
+<script src="design-data.js"></script>
+<script src="konkurs-data.js"></script>
 <script>
 (function(){
-  const MAIN = window.AG_PROJECTS || [], CONS = window.AG_CONSORTIUM || [];
-  const P = MAIN.concat(CONS);
+  const MAIN=window.AG_PROJECTS||[], CONS=window.AG_CONSORTIUM||[], DES=window.AG_DESIGN||[], KON=window.AG_KONKURS||[];
+  const P = MAIN.concat(CONS,DES,KON);
   const byslug = Object.fromEntries(P.map(o=>[o.slug,o]));
 
   function render(){
     const slug = new URLSearchParams(location.search).get('p');
     const p = byslug[slug] || P[0];
-    const SET = p.set==='consortium' ? CONS : MAIN;
+    const SET = p.set==='consortium' ? CONS : p.set==='design' ? DES : p.set==='konkurs' ? KON : MAIN;
     const i = SET.findIndex(o=>o.slug===p.slug);
     document.title = `${p.name} · AG Project Group`;
 
@@ -89,10 +91,11 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     const next = SET[(i + 1) % SET.length];
     const crumb = p.name.replace(/[«»]/g,'').toUpperCase();
 
-    const facts = [
-      ['Статус', p.status], ['Годы', p.years],
-      ['Заказчик', p.client], p.set==='consortium' ? ['Роль','Консорциум · ГАП '+p.gap] : ['Тип', p.category + ' · ' + p.region],
-    ];
+    let facts;
+    if (p.set==='design') facts = [['Раздел', p.type]];
+    else if (p.set==='konkurs') facts = [['Конкурс', p.year||'—'], ['Результат', p.status]];
+    else facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client],
+      p.set==='consortium' ? ['Роль','ГАП '+p.gap] : ['Тип', p.category+' · '+p.region]];
     const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
     const galleryHtml = gallery.map((f,gi)=>`
@@ -108,7 +111,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
           <a href="index.html" class="hover:text-primary">Главная</a> · <a href="portfolio.html" class="hover:text-primary">Проекты</a> · ${crumb}
         </div>
         <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-black mb-6">${p.name}</h1>
-        <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.full}. ${p.place}.</p>
+        <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? p.type : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">${factsHtml}</div>
       </section>
 
@@ -118,7 +121,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
       ${gallery.length ? `<section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
         <div class="flex justify-between items-end mb-10 border-b border-tertiary pb-4">
-          <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Проект</h3>
+          <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">${p.set==='design'?'Дизайн':p.set==='konkurs'?'Конкурс':'Проект'}</h3>
           <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">${p.photos.length} изображений</span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">${galleryHtml}</div>
