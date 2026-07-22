@@ -68,309 +68,82 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   </div>
 </footer>
 
+<script src="projects-data.js"></script>
 <script>
-/* ═══════════════════════════════════════════════
-   Данные всех 7 проектов АГ.
-   Пути к фото — относительные, папка circles/assets/projects/
-   ═══════════════════════════════════════════════ */
-const PROJECTS = {
-  'beryoza': {
-    code: 'P-2024-01',
-    title: 'ЖК «Берёзовая роща»',
-    tagline: 'ЖИЛОЙ КОМПЛЕКС · УЛ. 8-ОЕ МАРТА · ИЖЕВСК',
-    year: '2024 — 2026',
-    location: 'Ижевск · Удмуртия',
-    street: '8-ое Марта',
-    houses: '2 (№1 и №2)',
-    description: 'Два жилых дома на ул. 8-ое Марта в Ижевске — Дом №1 и Дом №2 — связаны общим благоустройством. Кирпич ручной формовки светлого розоватого оттенка, тёмно-зелёные двери (RAL 6020) на каждом входе, ритмические эркеры на южных фасадах.',
-    description2: 'Главное — двор без машин: липы, скамьи, мощение из удмуртского известняка. Авторский надзор включал более тридцати выездов на стройку.',
-    hero: 'circles/assets/projects/beryoza/dom-2/01.jpg',
-    gallery: [
-      {src:'circles/assets/projects/beryoza/dom-2/03.jpg', caption:'02 · Дом №2 · Двор'},
-      {src:'circles/assets/projects/beryoza/dom-1/01.jpg', caption:'03 · Дом №1 · Фасад'},
-      {src:'circles/assets/projects/beryoza/dom-2/06.jpg', caption:'04 · Дом №2 · Вечерний вид'},
-      {src:'circles/assets/projects/beryoza/dom-2/04.jpg', caption:'05 · Дом №2 · Деталь'},
-      {src:'circles/assets/projects/beryoza/dom-1/04.jpg', caption:'06 · Дом №1 · Двор'},
-      {src:'circles/assets/projects/beryoza/dom-2/05.jpg', caption:'07 · Дом №2 · Эркер'},
-    ],
-    specs: [
-      ['Участок','4,2 га'],['Этажность','5 — 7'],
-      ['Площадь застройки','28 600 м²'],['Секций','6'],
-      ['Квартир','412'],['Срок','2024 — 2026'],
-      ['Материал фасада','Кирпич ручной формовки'],['Стадия','Авторский надзор'],
-    ],
-    prev: {slug:'oktyabrskiy', code:'P-2022-01', title:'Жилой дом · пос. Октябрьский', img:'circles/assets/projects/oktyabrskiy/03.jpg'},
-    next: {slug:'len-cherepovets', code:'P-2025-02', title:'ЖК «ЛЕН»', img:'circles/assets/projects/len-cherepovets/02.jpg'}
-  },
-  'len-cherepovets': {
-    code: 'P-2025-02',
-    title: 'ЖК «ЛЕН»',
-    tagline: 'ЖИЛОЙ КОМПЛЕКС · ЧЕРЕПОВЕЦ · ВОЛОГОДСКАЯ ОБЛ.',
-    year: '2025 — 2026',
-    location: 'Череповец',
-    street: 'Череповецкий район',
-    houses: 'Комплекс среднеэтажный',
-    description: 'Первый выход бюро за пределы Удмуртии. Среднеэтажная жилая застройка с продуманной инсоляцией: каждая квартира получает минимум два часа прямого солнца в день зимнего солнцестояния.',
-    description2: 'Общественная функция первых этажей — маленькие магазины, кофейни, мастерские. Двор развёрнут на юго-восток, детские зоны отделены от транзитных путей.',
-    hero: 'circles/assets/projects/len-cherepovets/02.jpg',
-    gallery: [
-      {src:'circles/assets/projects/len-cherepovets/01.jpg', caption:'02 · Панорама'},
-      {src:'circles/assets/projects/len-cherepovets/03.jpg', caption:'03 · Двор'},
-      {src:'circles/assets/projects/len-cherepovets/04.jpg', caption:'04 · Фрагмент фасада'},
-      {src:'circles/assets/projects/len-cherepovets/05.jpg', caption:'05 · Входная группа'},
-      {src:'circles/assets/projects/len-cherepovets/09.jpg', caption:'06 · Вид с площади'},
-      {src:'circles/assets/projects/len-cherepovets/10.jpg', caption:'07 · Вид с дороги'},
-    ],
-    specs: [
-      ['Локация','Череповец'],['Этажность','5 — 8'],
-      ['Стадия','Проект'],['Срок','2025 — 2026'],
-      ['Функция первых этажей','Общественная'],['Инсоляция','2 ч. в день зимн. солнцестояния'],
-    ],
-    prev: {slug:'beryoza', code:'P-2024-01', title:'ЖК «Берёзовая роща»', img:'circles/assets/projects/beryoza/dom-2/01.jpg'},
-    next: {slug:'ostrova', code:'P-2025-03', title:'ЖК «Острова» №10', img:'circles/assets/projects/ostrova/01.jpg'}
-  },
-  'ostrova': {
-    code: 'P-2025-03',
-    title: 'ЖК «Острова» №10',
-    tagline: 'ЖИЛОЙ КВАРТАЛ №10 · ИЖЕВСК',
-    year: '2025',
-    location: 'Ижевск',
-    street: 'Микрорайон «Острова»',
-    houses: 'Высотный акцент',
-    description: 'Десятый квартал «Островов» — высотный жилой комплекс с акцентной верхней частью. Заметный силуэт в панораме города, продуманный ландшафт двора, общественные зоны на цокольном уровне.',
-    description2: 'Композиция играет с масштабом: снизу — камерные входные группы человеческого размера, наверху — эффектный контур, читаемый с городских дорог. Между ними — ритмическая сетка окон.',
-    hero: 'circles/assets/projects/ostrova/01.jpg',
-    gallery: [
-      {src:'circles/assets/projects/ostrova/02.jpg', caption:'02 · Верхушка'},
-      {src:'circles/assets/projects/ostrova/03.jpg', caption:'03 · Вид с юга'},
-      {src:'circles/assets/projects/ostrova/04.jpg', caption:'04 · Пассивная сторона'},
-      {src:'circles/assets/projects/ostrova/05.jpg', caption:'05 · Основание'},
-      {src:'circles/assets/projects/ostrova/06.jpg', caption:'06 · Общий вид'},
-      {src:'circles/assets/projects/ostrova/07.jpg', caption:'07 · Панорама'},
-    ],
-    specs: [
-      ['Локация','Ижевск'],['Тип','Высотный жилой'],
-      ['Стадия','Проект'],['Срок','2025'],
-      ['Первый этаж','Общественный'],['Силуэт','Акцентная верхушка'],
-    ],
-    prev: {slug:'len-cherepovets', code:'P-2025-02', title:'ЖК «ЛЕН»', img:'circles/assets/projects/len-cherepovets/02.jpg'},
-    next: {slug:'ezhevika', code:'P-2024-04', title:'ЖК «Ежевика»', img:'circles/assets/projects/ezhevika/dom-10/01.jpg'}
-  },
-  'ezhevika': {
-    code: 'P-2024-04',
-    title: 'ЖК «Ежевика»',
-    tagline: 'ЖИЛОЙ КОМПЛЕКС · УЛ. 10 ЛЕТ ОКТЯБРЯ · ИЖЕВСК',
-    year: '2024 — 2025',
-    location: 'Ижевск · Удмуртия',
-    street: '10 лет Октября',
-    houses: '3 (Дом №10, Дома 8, 9)',
-    description: 'Три жилых дома на ул. 10 лет Октября в Ижевске: одиночный Дом №10 и сдвоенные Дома 8 и 9. Спокойная палитра фасадов в оттенках светло-серого и молочного.',
-    description2: 'Узнаваемый ритм окон, глубокие оконные откосы, лаконичные входные группы. Насыщенное благоустройство — качели, лавки, невысокое освещение вдоль дорожек.',
-    hero: 'circles/assets/projects/ezhevika/dom-10/01.jpg',
-    gallery: [
-      {src:'circles/assets/projects/ezhevika/dom-10/02.jpg', caption:'02 · Дом №10 · Панорама'},
-      {src:'circles/assets/projects/ezhevika/dom-8-9/01.jpg', caption:'03 · Дома 8, 9 · Общий'},
-      {src:'circles/assets/projects/ezhevika/dom-10/03.jpg', caption:'04 · Дом №10 · Фасад'},
-      {src:'circles/assets/projects/ezhevika/dom-8-9/03.jpg', caption:'05 · Дома 8, 9 · Двор'},
-      {src:'circles/assets/projects/ezhevika/dom-10/07.jpg', caption:'06 · Дом №10 · Вечер'},
-      {src:'circles/assets/projects/ezhevika/dom-8-9/06.jpg', caption:'07 · Дома 8, 9 · Деталь'},
-    ],
-    specs: [
-      ['Локация','Ижевск'],['Улица','10 лет Октября'],
-      ['Домов','3'],['Стадия','Проект / реализация'],
-      ['Срок','2024 — 2025'],['Палитра','Светло-серый + молочный'],
-    ],
-    prev: {slug:'ostrova', code:'P-2025-03', title:'ЖК «Острова» №10', img:'circles/assets/projects/ostrova/01.jpg'},
-    next: {slug:'sosedi', code:'P-2023-05', title:'ЖК «Соседи»', img:'circles/assets/projects/sosedi/dom-3-3/04.jpg'}
-  },
-  'sosedi': {
-    code: 'P-2023-05',
-    title: 'ЖК «Соседи»',
-    tagline: 'ЖИЛОЙ КОМПЛЕКС · УЛ. ЛЕВАНЕВСКОГО · ИЖЕВСК',
-    year: '2023 — 2024',
-    location: 'Ижевск · Удмуртия',
-    street: 'Леваневского',
-    houses: '3 (Дома 3.1, 3.2, 3.3)',
-    description: 'Три жилых дома камерного масштаба на ул. Леваневского. Кирпичные фасады с глубокой пластикой — эркеры, ниши, откосы. Тихие внутренние дворы без сквозного транзита.',
-    description2: 'На первых этажах — общественная функция: небольшие кафе, ателье, шоурумы. Здание задумано так, чтобы соседям хотелось знакомиться друг с другом.',
-    hero: 'circles/assets/projects/sosedi/dom-3-3/04.jpg',
-    gallery: [
-      {src:'circles/assets/projects/sosedi/dom-3-3/01.jpg', caption:'02 · Дом 3.3 · Панорама'},
-      {src:'circles/assets/projects/sosedi/dom-3-1-2/01.jpg', caption:'03 · Дом 3.1 · Фасад'},
-      {src:'circles/assets/projects/sosedi/dom-3-3/02.jpg', caption:'04 · Дом 3.3 · Двор'},
-      {src:'circles/assets/projects/sosedi/dom-3-1-2/03.jpg', caption:'05 · Дом 3.2 · Входная группа'},
-      {src:'circles/assets/projects/sosedi/dom-3-3/07.jpg', caption:'06 · Дом 3.3 · Общий вид'},
-      {src:'circles/assets/projects/sosedi/dom-3-1-2/05.jpg', caption:'07 · Дома 3.1—3.2 · Деталь'},
-    ],
-    specs: [
-      ['Локация','Ижевск'],['Улица','Леваневского'],
-      ['Домов','3'],['Стадия','Реализация'],
-      ['Срок','2023 — 2024'],['Первые этажи','Общественная функция'],
-    ],
-    prev: {slug:'ezhevika', code:'P-2024-04', title:'ЖК «Ежевика»', img:'circles/assets/projects/ezhevika/dom-10/01.jpg'},
-    next: {slug:'gorkogo', code:'P-2023-06', title:'ЖК на М. Горького, 153', img:'circles/assets/projects/gorkogo/01.jpg'}
-  },
-  'gorkogo': {
-    code: 'P-2023-06',
-    title: 'ЖК на ул. М. Горького, 153',
-    tagline: 'ЖИЛОЙ КОМПЛЕКС · УЛ. М. ГОРЬКОГО · ИЖЕВСК',
-    year: '2023',
-    location: 'Ижевск · Центр',
-    street: 'М. Горького, 153',
-    houses: 'Единый корпус',
-    description: 'Жилой комплекс на одной из центральных улиц Ижевска. Светлый сдержанный фасад, ритм оконных проёмов, аккуратные входные группы с металлическими козырьками.',
-    description2: 'Двор — компактный, с площадкой для детей, лавками и небольшим сквером. Место, где встречаются жители соседних домов после работы.',
-    hero: 'circles/assets/projects/gorkogo/01.jpg',
-    gallery: [
-      {src:'circles/assets/projects/gorkogo/02.jpg', caption:'02 · Панорама'},
-      {src:'circles/assets/projects/gorkogo/03.jpg', caption:'03 · Двор'},
-      {src:'circles/assets/projects/gorkogo/04.jpg', caption:'04 · Фасад · день'},
-      {src:'circles/assets/projects/gorkogo/05.jpg', caption:'05 · Входная группа'},
-      {src:'circles/assets/projects/gorkogo/06.jpg', caption:'06 · Фрагмент'},
-      {src:'circles/assets/projects/gorkogo/07.jpg', caption:'07 · Вечерний вид'},
-    ],
-    specs: [
-      ['Локация','Ижевск · Центр'],['Улица','М. Горького, 153'],
-      ['Тип','Жилой корпус'],['Стадия','Реализован'],
-      ['Срок','2023'],['Двор','Компактный + сквер'],
-    ],
-    prev: {slug:'sosedi', code:'P-2023-05', title:'ЖК «Соседи»', img:'circles/assets/projects/sosedi/dom-3-3/04.jpg'},
-    next: {slug:'oktyabrskiy', code:'P-2022-01', title:'Жилой дом · пос. Октябрьский', img:'circles/assets/projects/oktyabrskiy/03.jpg'}
-  },
-  'oktyabrskiy': {
-    code: 'P-2022-01',
-    title: 'Жилой дом в пос. Октябрьский',
-    tagline: 'СРЕДНЕЭТАЖНЫЙ ДОМ · ПОС. ОКТЯБРЬСКИЙ',
-    year: '2022',
-    location: 'Удмуртия · пос. Октябрьский',
-    street: '—',
-    houses: 'Один корпус',
-    description: 'Среднеэтажный жилой дом в посёлке Октябрьский. Сдержанный фасад в оттенках серо-бежевого, коммерческая функция первых этажей — небольшие магазины, парикмахерская, аптека.',
-    description2: 'Контрастная пластика входных групп: глубокие ниши с деревянными панелями и тёплой подсветкой создают домашнюю сцену возвращения.',
-    hero: 'circles/assets/projects/oktyabrskiy/03.jpg',
-    gallery: [
-      {src:'circles/assets/projects/oktyabrskiy/01.jpg', caption:'02 · Панорама'},
-      {src:'circles/assets/projects/oktyabrskiy/02.jpg', caption:'03 · Общий вид'},
-      {src:'circles/assets/projects/oktyabrskiy/04.jpg', caption:'04 · Двор'},
-      {src:'circles/assets/projects/oktyabrskiy/05.jpg', caption:'05 · Первый этаж'},
-      {src:'circles/assets/projects/oktyabrskiy/06.jpg', caption:'06 · Коммерция'},
-      {src:'circles/assets/projects/oktyabrskiy/08.jpg', caption:'07 · Вечерний вид'},
-    ],
-    specs: [
-      ['Локация','пос. Октябрьский'],['Тип','Среднеэтажный'],
-      ['Первые этажи','Коммерческие'],['Стадия','Реализован'],
-      ['Срок','2022'],['Ниши входов','С подсветкой'],
-    ],
-    prev: {slug:'gorkogo', code:'P-2023-06', title:'ЖК на М. Горького, 153', img:'circles/assets/projects/gorkogo/01.jpg'},
-    next: {slug:'beryoza', code:'P-2024-01', title:'ЖК «Берёзовая роща»', img:'circles/assets/projects/beryoza/dom-2/01.jpg'}
+(function(){
+  const P = window.AG_PROJECTS || [];
+  const byslug = Object.fromEntries(P.map(o=>[o.slug,o]));
+
+  function render(){
+    const slug = new URLSearchParams(location.search).get('p');
+    const idx = P.findIndex(o=>o.slug===slug);
+    const p = byslug[slug] || P[0];
+    const i = idx>=0 ? idx : 0;
+    document.title = `${p.name} · AG Project Group`;
+
+    const hero = `${p.dir}/${p.photos[0]}`;
+    const gallery = p.photos.slice(1);
+    const prev = P[(i - 1 + P.length) % P.length];
+    const next = P[(i + 1) % P.length];
+    const crumb = p.name.replace(/[«»]/g,'').toUpperCase();
+
+    const facts = [
+      ['Статус', p.status], ['Годы', p.years],
+      ['Заказчик', p.client], ['Тип', p.category + ' · ' + p.region],
+    ];
+    const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
+
+    const galleryHtml = gallery.map((f,gi)=>`
+      <div class="reveal-on-scroll" style="transition-delay:${(gi%3)*100}ms">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${p.dir}/${f}" alt="" loading="lazy"></div>
+      </div>`).join('');
+
+    const nb = (o)=>`${o.dir}/${o.photos[0]}`;
+
+    document.getElementById('root').innerHTML = `
+      <section class="px-6 md:px-margin-desktop mb-12 max-w-container-max mx-auto">
+        <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6">
+          <a href="index.html" class="hover:text-primary">Главная</a> · <a href="portfolio.html" class="hover:text-primary">Проекты</a> · ${crumb}
+        </div>
+        <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-black mb-6">${p.name}</h1>
+        <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.full}. ${p.place}.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">${factsHtml}</div>
+      </section>
+
+      <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
+        <div class="aspect-[16/10] bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${hero}" alt="${p.name}"></div>
+      </section>
+
+      ${gallery.length ? `<section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+        <div class="flex justify-between items-end mb-10 border-b border-tertiary pb-4">
+          <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Проект</h3>
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">${p.photos.length} изображений</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">${galleryHtml}</div>
+      </section>` : ''}
+
+      <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <a href="project.html?p=${prev.slug}" class="reveal-on-scroll group block">
+            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(prev)}" alt="" loading="lazy"></div>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1">← Предыдущий</span>
+            <h4 class="font-headline-md text-headline-md uppercase font-bold">${prev.name}</h4>
+          </a>
+          <a href="project.html?p=${next.slug}" class="reveal-on-scroll group block" style="transition-delay:100ms">
+            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(next)}" alt="" loading="lazy"></div>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1 text-right">Следующий →</span>
+            <h4 class="font-headline-md text-headline-md uppercase font-bold text-right">${next.name}</h4>
+          </a>
+        </div>
+      </section>`;
+
+    const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+    scrollTo(0,0);
   }
-};
-
-/* ── Рендер ── */
-function render() {
-  const params = new URLSearchParams(location.search);
-  const slug = params.get('p') || 'beryoza';
-  const p = PROJECTS[slug] || PROJECTS['beryoza'];
-  document.title = `${p.title} · AG Project Group`;
-
-  const root = document.getElementById('root');
-  const galleryHtml = p.gallery.map((g, i) => `
-    <div class="reveal-on-scroll" style="transition-delay:${i * 100}ms">
-      <div class="aspect-square bg-tertiary-fixed mb-3 overflow-hidden"><img class="parallax-inner w-full h-full object-cover" src="${g.src}" alt=""></div>
-      <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">${g.caption}</p>
-    </div>`).join('');
-
-  const specsHtml = p.specs.map(([k, v]) => `
-    <div class="flex justify-between border-b border-outline-variant py-4"><span class="text-secondary">${k}</span><span class="font-bold">${v}</span></div>`).join('');
-
-  root.innerHTML = `
-    <section class="px-6 md:px-margin-desktop mb-16 max-w-container-max mx-auto">
-      <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6">
-        <a href="index.html" class="hover:text-primary">Главная</a> · <a href="portfolio.html" class="hover:text-primary">Проекты</a> · ${p.title.replace(/^ЖК\s+«?|»?$/g, '').toUpperCase()}
-      </div>
-      <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6">${p.code} · ${p.tagline}</div>
-      <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-black mb-12">${p.title}</h1>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">
-        <div><span class="text-secondary block mb-1">ЛОКАЦИЯ</span><span class="font-bold">${p.location}</span></div>
-        <div><span class="text-secondary block mb-1">УЛИЦА</span><span class="font-bold">${p.street}</span></div>
-        <div><span class="text-secondary block mb-1">ГОД</span><span class="font-bold">${p.year}</span></div>
-        <div><span class="text-secondary block mb-1">СОСТАВ</span><span class="font-bold">${p.houses}</span></div>
-      </div>
-    </section>
-
-    <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-      <div class="aspect-[16/9] bg-tertiary-fixed overflow-hidden">
-        <img class="parallax-inner w-full h-full object-cover" src="${p.hero}" alt="">
-      </div>
-      <div class="mt-4 flex justify-between font-label-sm text-label-sm uppercase tracking-widest text-secondary">
-        <span>01 / ${p.gallery.length + 1} · ГЛАВНЫЙ ВИД</span>
-        <span>↕ ПРОКРУТИТЬ ГАЛЕРЕЮ</span>
-      </div>
-    </section>
-
-    <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto reveal-on-scroll">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        <div class="md:col-span-1"><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">§ 01</span></div>
-        <div class="md:col-span-7">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4 block">Концепция</span>
-          <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-6">${p.description}</p>
-          <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">${p.description2}</p>
-        </div>
-        <div class="md:col-span-4">
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4 block">Команда</span>
-          <ul class="font-body-md text-body-md space-y-2 border-t border-tertiary pt-4">
-            <li><span class="text-secondary uppercase text-[11px] tracking-widest block">ГИП</span>А. Григорьев</li>
-            <li class="pt-2"><span class="text-secondary uppercase text-[11px] tracking-widest block">Архитектор</span>Команда АГ</li>
-            <li class="pt-2"><span class="text-secondary uppercase text-[11px] tracking-widest block">Подрядчик</span>Согласовано с заказчиком</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-      <div class="flex justify-between items-end mb-12 border-b border-tertiary pb-4">
-        <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Галерея</h3>
-        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">02 — ${(p.gallery.length + 1).toString().padStart(2,'0')} · ИЗ ${p.gallery.length + 1}</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">${galleryHtml}</div>
-    </section>
-
-    <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-      <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold mb-8 border-b border-tertiary pb-4">Параметры</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 font-label-sm text-label-sm uppercase tracking-widest">${specsHtml}</div>
-    </section>
-
-    <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-      <h3 class="font-headline-md text-headline-md uppercase tracking-widest font-bold mb-8 border-b border-tertiary pb-4">Соседние проекты</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <a href="project.html?p=${p.prev.slug}" class="reveal-on-scroll group block">
-          <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.prev.img}" alt=""></div>
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1">← ПРЕДЫДУЩИЙ · ${p.prev.code}</span>
-          <h4 class="font-headline-md text-headline-md uppercase font-bold">${p.prev.title}</h4>
-        </a>
-        <a href="project.html?p=${p.next.slug}" class="reveal-on-scroll group block" style="transition-delay:100ms">
-          <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.next.img}" alt=""></div>
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1 text-right">СЛЕДУЮЩИЙ · ${p.next.code} →</span>
-          <h4 class="font-headline-md text-headline-md uppercase font-bold text-right">${p.next.title}</h4>
-        </a>
-      </div>
-    </section>
-  `;
-
-  // Наблюдатель reveal + параллакс — после рендера
-  const io = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), {threshold:.1, rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.reveal-on-scroll').forEach(el => io.observe(el));
-
-  // Прицепить parallax к новым картинкам
-  document.querySelectorAll('.parallax-inner').forEach(el => {
-    el.style.transition = 'none';
-    el.style.transform = 'translateY(0) scale(1.12)';
-    el.style.willChange = 'transform';
-  });
-}
-
-render();
-window.addEventListener('popstate', render);
+  render();
+  window.addEventListener('popstate', render);
+})();
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 <script src="effects.js" defer></script>

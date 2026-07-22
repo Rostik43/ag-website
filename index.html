@@ -67,57 +67,11 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
   <!-- Projects Grid -->
   <section class="px-6 md:px-margin-desktop mb-32 pt-8 max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-
-      <a href="project.html?p=beryoza" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Берёзовая роща»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2026</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=len-cherepovets" class="reveal-on-scroll group block" style="transition-delay:100ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/len-cherepovets/02.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «ЛЕН»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2026</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Череповец</p>
-      </a>
-
-      <a href="project.html?p=ostrova" class="reveal-on-scroll group block" style="transition-delay:200ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ostrova/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Острова» №10</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=ezhevika" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ezhevika/dom-10/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Ежевика»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=sosedi" class="reveal-on-scroll group block" style="transition-delay:100ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/sosedi/dom-3-3/04.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК «Соседи»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=gorkogo" class="reveal-on-scroll group block" style="transition-delay:200ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/gorkogo/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">ЖК на М. Горького, 153</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2023</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё / Ижевск</p>
-      </a>
-
+    <div class="flex justify-between items-end mb-10 border-b border-tertiary pb-4">
+      <h2 class="font-headline-md text-headline-md uppercase tracking-widest font-bold">Избранное</h2>
+      <a href="portfolio.html" class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors">Все проекты →</a>
     </div>
+    <div id="homeGrid" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
   </section>
 
 </main>
@@ -218,6 +172,24 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   addEventListener('resize', measure);
   addEventListener('load', measure);
   measure();
+})();
+</script>
+<script src="projects-data.js"></script>
+<script>
+(function(){
+  const P = window.AG_PROJECTS || [];
+  const grid = document.getElementById('homeGrid');
+  if(!grid) return;
+  grid.innerHTML = P.slice(0,6).map((p,i)=>`
+    <a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
+      <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ').pop()}</span></div>
+      <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.category} · ${p.region}</p>
+    </a>`).join('');
+  const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  grid.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 })();
 </script>
 </body></html>

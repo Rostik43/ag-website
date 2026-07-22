@@ -61,105 +61,17 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
     <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · ПРОЕКТЫ</div>
     <h1 class="font-display-lg text-[40px] md:text-[88px] leading-[0.95] uppercase tracking-tight font-black mb-8">Проекты<br>2014 — 2026.</h1>
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Десять реализованных и проектируемых объектов — жилые дома и комплексы в Ижевске, Удмуртии и Череповце. Каждый ведём от первого эскиза до последнего смесителя.</p>
+    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Пятнадцать объектов — жилые дома, комплексы и общественные здания в Ижевске, Удмуртии, Череповце. Каждый ведём от первого эскиза до сдачи.</p>
   </section>
 
   <!-- Filter -->
   <section class="px-6 md:px-margin-desktop mb-16 max-w-container-max mx-auto">
-    <div class="flex flex-wrap gap-6 items-center border-t border-b border-tertiary py-4">
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Все · 10</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Жильё · 10</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Ижевск · 8</a>
-      <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Регион · 2</a>
-      <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest ml-auto">Сорт: по году ↓</span>
-    </div>
+    <div id="filters" class="flex flex-wrap gap-x-6 gap-y-3 items-center border-t border-b border-tertiary py-4"></div>
   </section>
 
-  <!-- Project Grid 3×N -->
+  <!-- Project Grid -->
   <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-
-      <a href="project.html?p=beryoza" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/beryoza/dom-2/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">01 · ЖК «Берёзовая роща»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024—26</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Ижевск · 8-ое Марта</p>
-      </a>
-
-      <a href="project.html?p=len-cherepovets" class="reveal-on-scroll group block" style="transition-delay:100ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/len-cherepovets/02.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">02 · ЖК «ЛЕН»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025—26</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Череповец</p>
-      </a>
-
-      <a href="project.html?p=ostrova" class="reveal-on-scroll group block" style="transition-delay:200ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ostrova/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">03 · ЖК «Острова» №10</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2025</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Ижевск</p>
-      </a>
-
-      <a href="project.html?p=ezhevika" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ezhevika/dom-10/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">04 · ЖК «Ежевика»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024—25</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Ижевск · 10 лет Октября</p>
-      </a>
-
-      <a href="project.html?p=sosedi" class="reveal-on-scroll group block" style="transition-delay:100ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/sosedi/dom-3-3/04.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">05 · ЖК «Соседи»</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2023—24</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Ижевск · Леваневского</p>
-      </a>
-
-      <a href="project.html?p=gorkogo" class="reveal-on-scroll group block" style="transition-delay:200ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/gorkogo/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">06 · ЖК на М. Горького, 153</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2023</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Ижевск</p>
-      </a>
-
-      <a href="project.html?p=oktyabrskiy" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/oktyabrskiy/03.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">07 · Жилой дом · пос. Октябрьский</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2022</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Жильё · Удмуртия</p>
-      </a>
-
-      <a href="project.html?p=beryoza" class="reveal-on-scroll group block" style="transition-delay:100ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/beryoza/dom-1/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">+ Берёзовая · Дом №1</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024—26</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Подкейс / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=ezhevika" class="reveal-on-scroll group block" style="transition-delay:200ms">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/ezhevika/dom-8-9/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">+ Ежевика · Дома 8, 9</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2024—25</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Подкейс / Ижевск</p>
-      </a>
-
-      <a href="project.html?p=sosedi" class="reveal-on-scroll group block">
-        <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-          <img class="parallax-inner w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="circles/assets/projects/sosedi/dom-3-1-2/01.jpg" alt="">
-        </div>
-        <div class="flex justify-between items-baseline"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">+ Соседи · Дома 3.1, 3.2</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">2023—24</span></div>
-        <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">Подкейс / Ижевск</p>
-      </a>
-
-    </div>
+    <div id="grid" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
   </section>
 
 </main>
@@ -186,5 +98,49 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     menuBtn.textContent=open?'close':'menu';
     document.body.style.overflow=open?'hidden':'';
   });}
+</script>
+<script src="projects-data.js"></script>
+<script>
+(function(){
+  const P = window.AG_PROJECTS || [];
+  const grid = document.getElementById('grid'), filters = document.getElementById('filters');
+  const FILTERS = [
+    ['all','Все', p=>true],
+    ['zh','Жильё', p=>p.category==='Жильё'],
+    ['ob','Общественное', p=>p.category==='Общественное'],
+    ['iz','Ижевск', p=>p.region==='Ижевск'],
+    ['rg','Регион', p=>p.region==='Регион'],
+  ];
+  let active = 'all';
+
+  function card(p, i){
+    return `<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
+      <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
+        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="flex justify-between items-baseline gap-3">
+        <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4>
+        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ').pop()}</span>
+      </div>
+      <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.category} · ${p.region} · ${p.status}</p>
+    </a>`;
+  }
+  function renderGrid(){
+    const f = FILTERS.find(x=>x[0]===active)[2];
+    const list = P.filter(f);
+    grid.innerHTML = list.map(card).join('');
+    const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    grid.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+  }
+  function renderFilters(){
+    filters.innerHTML = FILTERS.map(([k,label,f])=>{
+      const n = P.filter(f).length;
+      const cls = k===active ? 'text-primary border-b-2 border-primary' : 'text-secondary hover:text-primary';
+      return `<button data-k="${k}" class="font-label-sm text-label-sm uppercase tracking-widest ${cls} pb-1 transition-colors">${label} · ${n}</button>`;
+    }).join('') + '<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest ml-auto">Сорт: по году ↓</span>';
+    filters.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{active=b.dataset.k;renderFilters();renderGrid();}));
+  }
+  renderFilters(); renderGrid();
+})();
 </script>
 </body></html>
