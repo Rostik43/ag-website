@@ -32,7 +32,6 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
   <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
     <div class="flex items-center gap-4">
-      <img src="assets/logo/logo-mono.png" alt="AG" style="height:30px" class="block">
       <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-black text-primary">AG PROJECT GROUP</a>
     </div>
     <nav class="hidden md:flex gap-6 items-center">
@@ -87,6 +86,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     <div class="col-span-1">
       <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Связь</h4>
       <ul class="space-y-2">
+        <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="mailto:ag_pg@mail.ru">ag_pg@mail.ru</a></li>
         <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">Telegram</a></li>
         <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">Instagram</a></li>
         <li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors" href="#">VK</a></li>
@@ -95,7 +95,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     <div class="col-span-1">
       <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Студия</h4>
       <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest leading-loose">
-        ул. Тарасова, 7<br/>
+        ул. Тарасова, 7, офис 23<br/>
         426000 Ижевск<br/>
         Россия
       </p>
@@ -187,7 +187,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy">
       </div>
-      <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ').pop()}</span></div>
+      <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ')[0]}</span></div>
       <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.category} · ${p.region}</p>
     </a>`).join('');
   const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});

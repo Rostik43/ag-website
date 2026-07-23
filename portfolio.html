@@ -64,7 +64,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
     <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · ПРОЕКТЫ</div>
     <h1 class="font-display-lg text-[40px] md:text-[88px] leading-[0.95] uppercase tracking-tight font-medium mb-8">Проекты<br>2021 — 2026</h1>
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Жилые дома, комплексы и общественные здания в Ижевске, Удмуртии и Череповце. Каждый объект ведём от первого эскиза до сдачи.</p>
+    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Жилые дома, комплексы и общественные здания в городах России. Каждый объект ведём от первого эскиза до сдачи.</p>
   </section>
 
   <!-- Filter -->
@@ -82,8 +82,8 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <footer class="bg-surface border-t border-tertiary mt-auto">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-6 md:px-margin-desktop py-12 max-w-container-max mx-auto">
     <div><h2 class="font-headline-md text-headline-md uppercase font-bold text-primary mb-6">AG•PG</h2><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 БЮРО. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p></div>
-    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Связь</h4><ul class="space-y-2"><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Telegram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Instagram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">VK</a></li></ul></div>
-    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Студия</h4><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest leading-loose">ул. Тарасова, 7<br/>426000 Ижевск<br/>Россия</p></div>
+    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Связь</h4><ul class="space-y-2"><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="mailto:ag_pg@mail.ru">ag_pg@mail.ru</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Telegram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">Instagram</a></li><li><a class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest" href="#">VK</a></li></ul></div>
+    <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Студия</h4><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest leading-loose">ул. Тарасова, 7, офис 23<br/>426000 Ижевск<br/>Россия</p></div>
     <div><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold mb-4">Рассылка</h4><form class="flex border-b border-primary pb-2"><input class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm uppercase tracking-widest w-full" placeholder="ВАШ EMAIL" type="email"/><button class="material-symbols-outlined text-primary" type="submit">arrow_forward</button></form></div>
   </div>
 </footer>
@@ -123,7 +123,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       </div>
       <div class="flex justify-between items-baseline gap-3">
         <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4>
-        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ').pop()}</span>
+        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest whitespace-nowrap">${p.years.split(' — ')[0]}</span>
       </div>
       <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.category} · ${p.region} · ${p.status}</p>
     </a>`;
