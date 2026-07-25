@@ -31,7 +31,6 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-tertiary">
   <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
     <div class="flex items-center gap-4">
-      <img src="assets/logo/logo-mono.png" alt="AG" style="height:30px" class="block">
       <a href="index.html" class="font-headline-md text-headline-md uppercase tracking-tight font-black text-primary">AG PROJECT GROUP</a>
     </div>
     <nav class="hidden md:flex gap-6 items-center">
@@ -71,6 +70,10 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   </div>
 </footer>
 
+<div id="lightbox" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/90 cursor-zoom-out p-4">
+  <img id="lightboxImg" class="max-w-full max-h-full object-contain" src="" alt="">
+  <button id="lightboxClose" class="absolute top-5 right-6 text-white material-symbols-outlined" style="font-size:34px" aria-label="Закрыть">close</button>
+</div>
 <script src="projects-data.js"></script>
 <script src="consortium-data.js"></script>
 <script src="design-data.js"></script>
@@ -80,6 +83,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   const MAIN=window.AG_PROJECTS||[], CONS=window.AG_CONSORTIUM||[], DES=window.AG_DESIGN||[], KON=window.AG_KONKURS||[];
   const P = MAIN.concat(CONS,DES,KON);
   const byslug = Object.fromEntries(P.map(o=>[o.slug,o]));
+  const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lightboxImg');
+  function openLightbox(src){ lbImg.src=src; lb.classList.remove('hidden'); lb.classList.add('flex'); document.body.style.overflow='hidden'; }
+  function closeLightbox(){ lb.classList.add('hidden'); lb.classList.remove('flex'); lbImg.src=''; document.body.style.overflow=''; }
+  lb.addEventListener('click', closeLightbox);
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
 
   function render(){
     const slug = new URLSearchParams(location.search).get('p');
@@ -98,13 +107,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     if (p.set==='design') facts = [['Раздел', p.type]];
     else if (p.set==='konkurs') facts = [['Конкурс', p.year||'—'], ['Результат', p.status]];
     else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client],
-      p.set==='consortium' ? ['Роль','ГАП '+p.gap] : ['Тип', p.category+' · '+p.region]];
+      p.set==='consortium' ? ['Роль','Автор проекта'] : ['Тип', p.category+' · '+p.region]];
       if (p.stages) facts.push(['Стадии', p.stages]); }
     const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
     const galleryHtml = gallery.map((f,gi)=>`
       <div class="reveal-on-scroll" style="transition-delay:${(gi%3)*100}ms">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${p.dir}/${f}" alt="" loading="lazy"></div>
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${p.dir}/${f}" alt="" loading="lazy"></div>
       </div>`).join('');
 
     const nb = (o)=>`${o.dir}/${o.photos[0]}`;
@@ -120,7 +129,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       </section>
 
       <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
-        <div class="aspect-[16/10] bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${hero}" alt="${p.name}"></div>
+        <div class="aspect-[16/10] bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${hero}" alt="${p.name}"></div>
       </section>
 
       ${gallery.length ? `<section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
@@ -138,7 +147,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">${p.built.map((f,bi)=>`
           <div class="reveal-on-scroll" style="transition-delay:${(bi%3)*100}ms">
-            <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="w-full h-full object-cover" src="${p.builtDir}/${f}" alt="Реализация · ${p.name}" loading="lazy"></div>
+            <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${p.builtDir}/${f}" alt="Реализация · ${p.name}" loading="lazy"></div>
           </div>`).join('')}</div>
       </section>` : ''}
 
@@ -159,6 +168,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
     const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+    document.querySelectorAll('#root img.zoomable').forEach(img=>img.addEventListener('click',()=>openLightbox(img.src)));
     scrollTo(0,0);
   }
   render();
