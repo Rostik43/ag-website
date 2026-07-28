@@ -108,7 +108,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   const F=[['all','Все',p=>true],['mop','Интерьеры МОП',p=>p.type==='Интерьеры МОП'],['dvor','Благоустройство',p=>p.type==='Благоустройство двора']];
   let act='all';
   function card(p,i){return `<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
-    <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/${p.photos[0]}" alt="${p.name}" loading="lazy"></div>
+    <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/thumb-${p.photos[0]}" alt="${p.name}" loading="lazy"></div>
     <div class="flex justify-between items-baseline gap-3"><h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4></div>
     <p class="font-label-sm text-label-sm text-on-secondary-container mt-1 uppercase tracking-widest">${p.type}</p></a>`;}
   function grd(){const f=F.find(x=>x[0]===act)[2];grid.innerHTML=P.filter(f).map(card).join('');
