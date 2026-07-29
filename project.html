@@ -107,7 +107,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     if (p.set==='design') facts = [['Раздел', p.type]];
     else if (p.set==='konkurs') facts = [['Конкурс', p.year||'—'], ['Результат', p.status]];
     else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client],
-      p.set==='consortium' ? ['Роль','Автор проекта'] : ['Тип', p.category+' · '+p.region]];
+      p.set==='consortium' ? ['Роль','ГАП '+p.gap] : ['Тип', p.category+' · '+p.region]];
       if (p.stages) facts.push(['Стадии', p.stages]); }
     const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
