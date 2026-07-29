@@ -130,6 +130,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
         <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-medium mb-6">${p.name}</h1>
         <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? p.type : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">${factsHtml}</div>
+        ${(p.authors && p.authors.length) ? `<div class="border-t border-tertiary mt-8 pt-8">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-4">Авторский коллектив</span>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-2 max-w-4xl">
+            ${p.authors.map(a=>`<li class="font-body-md text-body-md">${a}</li>`).join('')}
+          </ul>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-4">Ижевск</p>
+        </div>` : ''}
       </section>
 
       <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
