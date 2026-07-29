@@ -102,12 +102,16 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     const prev = SET[(i - 1 + SET.length) % SET.length];
     const next = SET[(i + 1) % SET.length];
     const crumb = p.name.replace(/[«»]/g,'').toUpperCase();
+    const parent = p.set==='consortium' ? ['konsorcium.html','Консорциум']
+                 : p.set==='design'     ? ['dizain-proekty.html','Дизайн-проекты']
+                 : p.set==='konkurs'    ? ['konkursy.html','Конкурсы']
+                 : ['portfolio.html','Проекты'];
 
     let facts;
     if (p.set==='design') facts = [['Раздел', p.type]];
     else if (p.set==='konkurs') facts = [['Конкурс', p.year||'—'], ['Результат', p.status]];
-    else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client],
-      p.set==='consortium' ? ['Автор проекта', p.gap] : ['Тип', p.category+' · '+p.region]];
+    else if (p.set==='consortium') facts = [['Статус', p.status], ['Годы', p.years], ['Автор проекта', p.gap]];
+    else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client], ['Тип', p.category+' · '+p.region]];
       if (p.stages) facts.push(['Стадии', p.stages]); }
     const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
@@ -121,7 +125,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     document.getElementById('root').innerHTML = `
       <section class="px-6 md:px-margin-desktop mb-12 max-w-container-max mx-auto">
         <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6">
-          <a href="index.html" class="hover:text-primary">Главная</a> · <a href="portfolio.html" class="hover:text-primary">Проекты</a> · ${crumb}
+          <a href="index.html" class="hover:text-primary">Главная</a> · <a href="${parent[0]}" class="hover:text-primary">${parent[1]}</a> · ${crumb}
         </div>
         <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-medium mb-6">${p.name}</h1>
         <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? p.type : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
@@ -169,6 +173,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
     document.querySelectorAll('#root img.zoomable').forEach(img=>img.addEventListener('click',()=>openLightbox(img.dataset.full||img.src)));
+    document.querySelectorAll('header nav a[href$=".html"]').forEach(a=>{
+      const on = a.getAttribute('href')===parent[0];
+      if (a.classList.contains('bg-primary')) return; /* CTA не трогаем */
+      a.classList.toggle('text-primary', on); a.classList.toggle('border-b-2', on); a.classList.toggle('border-primary', on);
+      a.classList.toggle('text-secondary', !on);
+    });
     scrollTo(0,0);
   }
   render();
