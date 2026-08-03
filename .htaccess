@@ -1,0 +1,30 @@
+# ── Страница ошибки ──
+ErrorDocument 404 /404.html
+
+# ── HTTPS и без www ──
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://ag-pg.ru/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\.ag-pg\.ru$ [NC]
+  RewriteRule ^(.*)$ https://ag-pg.ru/$1 [R=301,L]
+</IfModule>
+
+# ── Сжатие ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── Кэш статики ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ── Кодировка ──
+AddDefaultCharset UTF-8
