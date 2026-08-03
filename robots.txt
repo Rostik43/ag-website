@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_inbox/
 
-Sitemap: https://rostik43.github.io/ag-website/sitemap.xml
+Sitemap: https://ag-pg.ru/sitemap.xml
