@@ -108,7 +108,13 @@ tailwind.config = {darkMode:"class",theme:{extend:{
                  : ['portfolio.html','Проекты'];
 
     let facts;
-    if (p.set==='design') facts = [['Раздел', p.type]];
+    if (p.set==='design') {
+      facts = [['Раздел', p.type]];
+      if (p.status) facts.push(['Статус', p.status]);
+      if (p.years) facts.push(['Годы', p.years]);
+      if (p.client) facts.push(['Заказчик', p.client]);
+      if (p.partner) facts.push(['Совместно с', p.partner]);
+    }
     else if (p.set==='konkurs') facts = [['Конкурс', p.year||'—'], ['Результат', p.status]];
     else if (p.set==='consortium') facts = [['Статус', p.status], ['Годы', p.years], ['Автор проекта', p.gap]];
     else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client], ['Тип', p.category+' · '+p.region]];
@@ -128,7 +134,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
           <a href="index.html" class="hover:text-primary">Главная</a> · <a href="${parent[0]}" class="hover:text-primary">${parent[1]}</a> · ${crumb}
         </div>
         <h1 class="font-display-lg text-[36px] md:text-[84px] leading-[0.95] uppercase tracking-tight font-medium mb-6">${p.name}</h1>
-        <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? p.type : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
+        <p class="font-body-lg text-body-lg text-secondary max-w-3xl mb-10">${p.set==='design' ? (p.full ? p.full + (p.place ? '. ' + p.place + '.' : '') : p.type) : p.set==='konkurs' ? p.full : (p.full + '. ' + p.place + '.')}</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-tertiary pt-8 font-label-sm text-label-sm uppercase tracking-widest">${factsHtml}</div>
         ${(p.authors && p.authors.length) ? `<div class="border-t border-tertiary mt-8 pt-8">
           <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-4">Авторский коллектив</span>
