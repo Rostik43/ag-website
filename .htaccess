@@ -1,11 +1,9 @@
 # ── Страница ошибки ──
 ErrorDocument 404 /404.html
 
-# ── HTTPS и без www ──
+# ── Без www (HTTPS-редирект настраивается в панели хостинга) ──
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://ag-pg.ru/$1 [R=301,L]
   RewriteCond %{HTTP_HOST} ^www\.ag-pg\.ru$ [NC]
   RewriteRule ^(.*)$ https://ag-pg.ru/$1 [R=301,L]
 </IfModule>
@@ -26,5 +24,4 @@ ErrorDocument 404 /404.html
   ExpiresByType text/html "access plus 1 hour"
 </IfModule>
 
-# ── Кодировка ──
 AddDefaultCharset UTF-8
