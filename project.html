@@ -113,8 +113,9 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     const i = SET.findIndex(o=>o.slug===p.slug);
     document.title = `${p.name} · AG Project Group`;
 
-    const hero = `${p.dir}/${p.photos[0]}`;
-    const gallery = p.photos.slice(1);
+    const pics = p.photos || [];
+    const hero = pics.length ? `${p.dir}/${pics[0]}` : '';
+    const gallery = pics.slice(1);
     const prev = SET[(i - 1 + SET.length) % SET.length];
     const next = SET[(i + 1) % SET.length];
     const crumb = p.name.replace(/[«»]/g,'').toUpperCase();
@@ -135,14 +136,14 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     else if (p.set==='consortium') facts = [['Статус', p.status], ['Годы', p.years], ['Автор проекта', p.gap]];
     else { facts = [['Статус', p.status], ['Годы', p.years], ['Заказчик', p.client], ['Тип', p.category+' · '+p.region]];
       if (p.stages) facts.push(['Стадии', p.stages]); }
-    const factsHtml = facts.map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
+    const factsHtml = facts.filter(([k,v])=>v!==undefined&&v!==null&&v!=='').map(([k,v])=>`<div><span class="text-secondary block mb-1">${k.toUpperCase()}</span><span class="font-bold normal-case">${v}</span></div>`).join('');
 
     const galleryHtml = gallery.map((f,gi)=>`
       <div class="reveal-on-scroll" style="transition-delay:${(gi%3)*100}ms">
         <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${p.dir}/thumb-${f}" data-full="${p.dir}/${f}" alt="${p.name} — изображение проекта" loading="lazy"></div>
       </div>`).join('');
 
-    const nb = (o)=>`${o.dir}/thumb-${o.photos[0]}`;
+    const nb = (o)=>(o.photos&&o.photos.length)?`${o.dir}/thumb-${o.photos[0]}`:'';
 
     document.getElementById('root').innerHTML = `
       <section class="px-6 md:px-margin-desktop mb-12 max-w-container-max mx-auto">
@@ -162,7 +163,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       </section>
 
       <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
-        <div class="aspect-[16/10] bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${hero}" alt="${p.name}"></div>
+        <div class="aspect-[16/10] bg-tertiary-fixed overflow-hidden">${hero ? `<img class="zoomable cursor-pointer w-full h-full object-cover" src="${hero}" alt="${p.name}">` : ''}</div>
       </section>
 
       ${gallery.length ? `<section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
@@ -215,6 +216,20 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 })();
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="texts-data.js?v=202608071200"></script>
+<script>
+  (function(){
+    const T = window.AG_TEXTS || {};
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const v = T[el.dataset.t];
+      if (v == null || v === '') return;
+      el.innerHTML = String(v).replace(/\n/g, '<br>');
+      const href = el.getAttribute('href') || '';
+      if (href.startsWith('tel:')) el.setAttribute('href', 'tel:' + String(v).replace(/[^\d+]/g, ''));
+      if (href.startsWith('mailto:')) el.setAttribute('href', 'mailto:' + String(v).trim());
+    });
+  })();
+</script>
 <script src="effects.js" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');

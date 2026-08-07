@@ -82,7 +82,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <section class="px-6 md:px-margin-desktop mb-24 max-w-container-max mx-auto">
     <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-6"><a href="index.html" class="hover:text-primary">Главная</a> · БЮРО</div>
     <h1 class="font-display-lg text-[40px] md:text-[100px] leading-[0.9] uppercase tracking-tight font-medium mb-8">Бюро</h1>
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Архитектурное бюро в Ижевске, основано в 2021 году. За плечами основателей — более 20 лет проектной практики: от градостроительных концепций до рабочей документации.</p>
+    <p data-t="buro.lead" class="font-body-lg text-body-lg text-secondary max-w-2xl">Архитектурное бюро в Ижевске, основано в 2021 году. За плечами основателей — более 20 лет проектной практики: от градостроительных концепций до рабочей документации.</p>
   </section>
 
   <!-- Team -->
@@ -112,125 +112,14 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       </figure>
       <div class="md:col-span-6 md:col-start-7">
         <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-6">Основатели</span>
-        <h3 class="font-display-lg text-[28px] md:text-[44px] leading-tight uppercase tracking-tight font-medium mb-6">Николай и Ирина Глазырины</h3>
-        <p class="font-body-lg text-body-lg text-secondary mb-4">Руководитель бюро и главный архитектор. Основали бюро в 2021 году; за их плечами более 20 лет проектной практики — и по-прежнему лично ведут каждый объект от эскиза до ввода.</p>
-        <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Николай — руководитель бюро · Ирина — главный архитектор</p>
+        <h3 class="font-display-lg text-[28px] md:text-[44px] leading-tight uppercase tracking-tight font-medium mb-6" data-t="buro.founders_name">Николай и Ирина Глазырины</h3>
+        <p data-t="buro.founders_text" class="font-body-lg text-body-lg text-secondary mb-4">Руководитель бюро и главный архитектор. Основали бюро в 2021 году; за их плечами более 20 лет проектной практики — и по-прежнему лично ведут каждый объект от эскиза до ввода.</p>
+        <p data-t="buro.founders_roles" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Николай — руководитель бюро · Ирина — главный архитектор</p>
       </div>
     </div>
 
-    <!-- Сетка команды -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/garanin-bw.jpg" alt="Илья Гаранин" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/garanin.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Илья Гаранин</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный инженер · партнёр</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/dyageleva-bw.jpg" alt="Ирина Дягелева" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/dyageleva.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Ирина Дягелева</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный архитектор проекта</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/shutova-bw.jpg" alt="Разиля Шутова" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/shutova.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Разиля Шутова</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Главный архитектор проекта</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/shepeleva-bw.jpg" alt="Анастасия Шепелева" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/shepeleva.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Анастасия Шепелева</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Ведущий архитектор</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/kropacheva-bw.jpg" alt="Лейсания Кропачева" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/kropacheva.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Лейсания Кропачева</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Ведущий инженер</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/novikova-bw.jpg" alt="Александра Новикова" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/novikova.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Александра Новикова</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор · BIM-менеджер</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/ryabchikov-bw.jpg" alt="Георгий Рябчиков" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/ryabchikov.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Георгий Рябчиков</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/maksimova-bw.jpg" alt="Юлия Максимова" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/maksimova.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Юлия Максимова</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Архитектор</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/merzlyakova-bw.jpg" alt="Дарья Мерзлякова" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/merzlyakova.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Дарья Мерзлякова</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Инженер</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/lekoncev-bw.jpg" alt="Сергей Леконцев" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/lekoncev.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Сергей Леконцев</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Техник-архитектор</p>
-        </figcaption>
-      </figure>
-      <figure class="reveal-on-scroll group">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
-          <img class="w-full h-full object-cover" src="assets/team/nabiev-bw.jpg" alt="Даниль Набиев" loading="lazy">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/nabiev.jpg" alt="" loading="lazy" aria-hidden="true">
-        </div>
-        <figcaption class="mt-3">
-          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Даниль Набиев</h4>
-          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">Техник-архитектор</p>
-        </figcaption>
-      </figure>
-    </div>
+    <!-- Сетка команды — рендерится из team-data.js -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8" id="teamGrid"></div>
   </section>
 
 
@@ -240,10 +129,10 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <section class="bg-primary text-on-primary py-32 px-6 md:px-margin-desktop mb-0">
     <div class="max-w-4xl mx-auto">
       <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mb-8 block">Философия</span>
-      <h2 class="font-display-lg text-[36px] md:text-[64px] leading-tight mb-12 uppercase font-medium">Мы строим тишину. Мы создаём свет. Мы определяем эфемерное внутри постоянного.</h2>
+      <h2 class="font-display-lg text-[36px] md:text-[64px] leading-tight mb-12 uppercase font-medium" data-t="buro.philosophy_title">Мы строим тишину. Мы создаём свет. Мы определяем эфемерное внутри постоянного.</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-on-tertiary-container pt-12">
-        <p class="font-body-lg text-body-lg text-on-primary-fixed">Наш подход построен на убеждении: архитектура должна ощущаться так же, как видеться. Снимая лишнее — мы открываем суть места.</p>
-        <p class="font-body-lg text-body-lg text-on-primary-fixed">Каждая линия — решение. Каждая тень — материал. Мы работаем на пересечении математической точности и поэтического пространственного опыта.</p>
+        <p data-t="buro.philosophy_1" class="font-body-lg text-body-lg text-on-primary-fixed">Наш подход построен на убеждении: архитектура должна ощущаться так же, как видеться. Снимая лишнее — мы открываем суть места.</p>
+        <p data-t="buro.philosophy_2" class="font-body-lg text-body-lg text-on-primary-fixed">Каждая линия — решение. Каждая тень — материал. Мы работаем на пересечении математической точности и поэтического пространственного опыта.</p>
       </div>
     </div>
   </section>
@@ -264,6 +153,39 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="team-data.js?v=202608071200"></script>
+<script>
+  (function(){
+    const grid = document.getElementById('teamGrid'), team = window.AG_TEAM || [];
+    if (!grid) return;
+    grid.innerHTML = team.map(p => `
+      <figure class="reveal-on-scroll group">
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden relative">
+          <img class="w-full h-full object-cover" src="assets/team/${p.slug}-bw.jpg" alt="${p.name}" loading="lazy">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" src="assets/team/${p.slug}.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+        <figcaption class="mt-3">
+          <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4>
+          <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-1">${p.role}</p>
+        </figcaption>
+      </figure>`).join('');
+    grid.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('active'));
+  })();
+</script>
+<script src="texts-data.js?v=202608071200"></script>
+<script>
+  (function(){
+    const T = window.AG_TEXTS || {};
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const v = T[el.dataset.t];
+      if (v == null || v === '') return;
+      el.innerHTML = String(v).replace(/\n/g, '<br>');
+      const href = el.getAttribute('href') || '';
+      if (href.startsWith('tel:')) el.setAttribute('href', 'tel:' + String(v).replace(/[^\d+]/g, ''));
+      if (href.startsWith('mailto:')) el.setAttribute('href', 'mailto:' + String(v).trim());
+    });
+  })();
+</script>
 <script src="effects.js" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');

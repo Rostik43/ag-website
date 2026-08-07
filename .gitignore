@@ -1,2 +1,4 @@
 .DS_Store
 _inbox/
+admin/config.php
+admin/backup/*.bak

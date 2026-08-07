@@ -1,0 +1,11 @@
+# Секреты и резервные копии наружу не отдаём
+<IfModule mod_authz_core.c>
+  <FilesMatch "^config\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^backup/ - [F,L]
+</IfModule>
+Options -Indexes

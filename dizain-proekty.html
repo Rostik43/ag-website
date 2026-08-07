@@ -108,6 +108,20 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="texts-data.js?v=202608071200"></script>
+<script>
+  (function(){
+    const T = window.AG_TEXTS || {};
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const v = T[el.dataset.t];
+      if (v == null || v === '') return;
+      el.innerHTML = String(v).replace(/\n/g, '<br>');
+      const href = el.getAttribute('href') || '';
+      if (href.startsWith('tel:')) el.setAttribute('href', 'tel:' + String(v).replace(/[^\d+]/g, ''));
+      if (href.startsWith('mailto:')) el.setAttribute('href', 'mailto:' + String(v).trim());
+    });
+  })();
+</script>
 <script src="effects.js" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
@@ -120,7 +134,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <script src="design-data.js?v=202608031957"></script>
 <script>
 (function(){
-  const P=window.AG_DESIGN||[], grid=document.getElementById('dgrid'), fl=document.getElementById('dfilters');
+  const P=(window.AG_DESIGN||[]).filter(p=>p.photos&&p.photos.length), grid=document.getElementById('dgrid'), fl=document.getElementById('dfilters');
   const F=[['all','Все',p=>true],['mop','Интерьеры МОП',p=>p.type==='Интерьеры МОП'],['dvor','Благоустройство',p=>p.type==='Благоустройство двора']];
   let act='all';
   function card(p,i){return `<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">

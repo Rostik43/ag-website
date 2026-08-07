@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;700;900&family=Golos+Text:wght@400..700&display=swap');
+
+:root{--bg:#f9f9f7;--ink:#000;--mut:#5e5e5e;--line:#dedbd3;--ok:#2f7d4f;--err:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 'Golos Text',sans-serif}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+header.top{border-bottom:1px solid var(--ink);background:var(--bg);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;gap:16px}
+.logo{font-family:'Barlow','Golos Text';font-weight:900;font-size:18px;letter-spacing:-.01em;text-transform:uppercase;text-decoration:none}
+.logo small{display:block;font-family:'Golos Text';font-weight:600;font-size:10px;letter-spacing:.2em;color:var(--mut)}
+nav.sections{display:flex;gap:20px;flex-wrap:wrap}
+nav.sections a{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding-bottom:2px}
+nav.sections a:hover{color:var(--ink)}
+nav.sections a.on{color:var(--ink);border-bottom:2px solid var(--ink)}
+
+h1{font-family:'Barlow','Golos Text';font-weight:500;font-size:clamp(28px,4vw,44px);text-transform:uppercase;letter-spacing:-.02em;margin:32px 0 8px}
+h2{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:32px 0 12px}
+.sub{color:var(--mut);margin:0 0 24px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;padding:12px 20px;font:600 12px/1 'Golos Text';letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.btn:hover{background:#333}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.danger{background:transparent;color:var(--err);border:1px solid var(--err)}
+.btn.danger:hover{background:var(--err);color:#fff}
+.btn.sm{padding:8px 12px;font-size:11px}
+
+table{width:100%;border-collapse:collapse;margin-bottom:40px}
+th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--ink)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:#f2f1ed}
+td.cover img{width:64px;height:64px;object-fit:cover;display:block;background:#e6e4de}
+td.nm{font-weight:600}
+td.meta{color:var(--mut);font-size:13px}
+td.act{text-align:right;white-space:nowrap}
+
+form.card{background:#fff;border:1px solid var(--line);padding:24px;margin-bottom:32px}
+label{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:0 0 6px}
+input[type=text],input[type=password],textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);background:#fff;font:400 15px 'Golos Text';color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--ink)}
+textarea{min-height:80px;resize:vertical}
+.row{margin-bottom:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:16px 0 8px}
+.ph{position:relative;background:#fff;border:1px solid var(--line);cursor:grab}
+.ph.drag{opacity:.4}
+.ph img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ph .n{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.75);color:#fff;font-size:11px;padding:3px 7px;letter-spacing:.1em}
+.ph .cover{position:absolute;top:6px;right:6px;background:var(--ok);color:#fff;font-size:10px;padding:3px 7px;letter-spacing:.08em;text-transform:uppercase}
+.ph .x{position:absolute;bottom:6px;right:6px;background:#fff;border:1px solid var(--err);color:var(--err);font-size:11px;padding:4px 8px;cursor:pointer}
+.ph .x:hover{background:var(--err);color:#fff}
+
+.drop{border:2px dashed var(--line);padding:28px;text-align:center;color:var(--mut);background:#fff;cursor:pointer}
+.drop.over{border-color:var(--ink);background:#f2f1ed;color:var(--ink)}
+.bar{height:4px;background:var(--line);margin-top:12px;display:none}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .2s}
+
+.msg{padding:12px 16px;margin:16px 0;border:1px solid}
+.msg.ok{border-color:var(--ok);color:var(--ok);background:#f0f7f2}
+.msg.err{border-color:var(--err);color:var(--err);background:#fdf1f0}
+.hint{font-size:13px;color:var(--mut);margin-top:6px}
+
+.login{max-width:380px;margin:14vh auto;padding:0 24px}
+footer.bot{border-top:1px solid var(--line);margin-top:60px;padding:22px 0;color:var(--mut);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+
+/* карточки команды с полями */
+.ph.card-p{cursor:grab}
+.ph .pf{padding:8px}
+.ph .pf input{margin-bottom:6px;padding:7px 8px;font-size:13px}
+.ph .pf input:last-child{margin-bottom:0;color:var(--mut)}
+td form{margin:0}
+input[type=file]{width:100%;font:400 13px 'Golos Text';padding:8px 0}
