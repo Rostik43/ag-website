@@ -132,7 +132,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   function card(p, i){
     return `<a href="project.html?p=${p.slug}" class="reveal-on-scroll group block" style="transition-delay:${(i%3)*100}ms">
       <div class="aspect-square bg-tertiary-fixed mb-6 overflow-hidden">
-        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/thumb-${p.photos[0]}" alt="${p.name}" loading="lazy">
+        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${p.dir}/thumb-${p.photos[0]}" alt="${p.name} — AG Project Group" loading="lazy">
       </div>
       <div class="flex justify-between items-baseline gap-3">
         <h4 class="font-label-sm text-label-sm uppercase tracking-widest font-bold">${p.name}</h4>

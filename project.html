@@ -137,7 +137,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 
     const galleryHtml = gallery.map((f,gi)=>`
       <div class="reveal-on-scroll" style="transition-delay:${(gi%3)*100}ms">
-        <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${p.dir}/thumb-${f}" data-full="${p.dir}/${f}" alt="" loading="lazy"></div>
+        <div class="aspect-square bg-tertiary-fixed overflow-hidden"><img class="zoomable cursor-pointer w-full h-full object-cover" src="${p.dir}/thumb-${f}" data-full="${p.dir}/${f}" alt="${p.name} — изображение проекта" loading="lazy"></div>
       </div>`).join('');
 
     const nb = (o)=>`${o.dir}/thumb-${o.photos[0]}`;
@@ -185,12 +185,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       <section class="px-6 md:px-margin-desktop mb-32 max-w-container-max mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <a href="project.html?p=${prev.slug}" class="reveal-on-scroll group block">
-            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(prev)}" alt="" loading="lazy"></div>
+            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(prev)}" alt="${prev.name}" loading="lazy"></div>
             <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1">← Предыдущий</span>
             <h4 class="font-headline-md text-headline-md uppercase font-bold">${prev.name}</h4>
           </a>
           <a href="project.html?p=${next.slug}" class="reveal-on-scroll group block" style="transition-delay:100ms">
-            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(next)}" alt="" loading="lazy"></div>
+            <div class="aspect-[3/2] bg-tertiary-fixed mb-4 overflow-hidden"><img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="${nb(next)}" alt="${next.name}" loading="lazy"></div>
             <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-1 text-right">Следующий →</span>
             <h4 class="font-headline-md text-headline-md uppercase font-bold text-right">${next.name}</h4>
           </a>
