@@ -60,7 +60,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="buro.html">Бюро</a>
       <a class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-4 py-3 hover:bg-secondary transition-colors" href="contact.html">Обсудить проект</a>
     </nav>
-    <button id="menuBtn" class="material-symbols-outlined text-primary md:hidden" aria-label="Открыть меню">menu</button>
+    <button id="menuBtn" class="material-symbols-outlined text-primary md:hidden p-3 -m-3" aria-label="Открыть меню">menu</button>
   </div>
 </header>
 
@@ -145,7 +145,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     grid.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));}
   function flt(){fl.innerHTML=F.map(([k,l,f])=>{const n=P.filter(f).length;const c=k===act?'text-primary border-b-2 border-primary':'text-secondary hover:text-primary';
-    return `<button data-k="${k}" class="font-label-sm text-label-sm uppercase tracking-widest ${c} pb-1 transition-colors">${l} · ${n}</button>`;}).join('');
+    return `<button data-k="${k}" class="font-label-sm text-label-sm uppercase tracking-widest ${c} py-2 transition-colors">${l} · ${n}</button>`;}).join('');
     fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{act=b.dataset.k;flt();grd();});}
   flt();grd();
 })();
