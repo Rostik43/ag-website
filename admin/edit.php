@@ -53,7 +53,7 @@ $photos = $obj['photos'] ?? [];
       <a href="list.php?set=<?= $k ?>" class="<?= $k === $set ? 'on' : '' ?>"><?= h($s['title']) ?></a>
     <?php endforeach; ?>
     <a href="team.php">Команда</a><a href="texts.php">Тексты</a>
-    <a href="/" target="_blank">Сайт ↗</a><a href="index.php?logout=1">Выйти</a>
+    <a href="help.php">Инструкция</a><a href="/" target="_blank">Сайт ↗</a><a href="index.php?logout=1">Выйти</a>
   </nav>
 </div></header>
 

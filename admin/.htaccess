@@ -1,11 +1,26 @@
-# Секреты и резервные копии наружу не отдаём
+# Наружу отдаются только страницы админки. Всё остальное закрыто.
+# Пароли и любые секреты не хранить в файлах внутри сайта — только внутри PHP,
+# защищённого входом: статические файлы на этом хостинге может раздавать nginx,
+# который .htaccess не читает.
+
 <IfModule mod_authz_core.c>
-  <FilesMatch "^config\.php$">
+  # секреты, резервные копии, заметки, архивы, файлы редакторов
+  <FilesMatch "(^config\.php$|\.(bak|txt|md|log|sql|zip|tar|gz|old|orig|save|swp|ini|yml|yaml|json|example)$|~$)">
     Require all denied
   </FilesMatch>
 </IfModule>
+
+# для старого Apache 2.2
+<IfModule !mod_authz_core.c>
+  <FilesMatch "(^config\.php$|\.(bak|txt|md|log|sql|zip|tar|gz|old|orig|save|swp|ini|yml|yaml|json|example)$|~$)">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^backup/ - [F,L]
 </IfModule>
+
 Options -Indexes

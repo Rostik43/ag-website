@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <nav class="sections">
     <?php foreach (SETS as $k => $s): ?><a href="list.php?set=<?= $k ?>"><?= h($s['title']) ?></a><?php endforeach; ?>
     <a href="team.php">Команда</a><a href="texts.php" class="on">Тексты</a>
-    <a href="/" target="_blank">Сайт ↗</a><a href="index.php?logout=1">Выйти</a>
+    <a href="help.php">Инструкция</a><a href="/" target="_blank">Сайт ↗</a><a href="index.php?logout=1">Выйти</a>
   </nav>
 </div></header>
 
