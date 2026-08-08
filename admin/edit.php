@@ -90,7 +90,7 @@ $photos = $obj['photos'] ?? [];
 
   <?php if ($idx >= 0): ?>
   <h2>Фотографии</h2>
-  <p class="hint">Первая фотография — обложка в списке проектов. Порядок меняется перетаскиванием. Загружать можно любые файлы — размер и миниатюры сделаются сами.</p>
+  <p class="hint">Первая фотография — обложка в списке проектов. Порядок меняется перетаскиванием или стрелками ◀ ▶ на карточке. Загружать можно любые файлы — размер и миниатюры сделаются сами.</p>
 
   <div class="drop" id="drop">
     Перетащите фотографии сюда или нажмите для выбора
@@ -104,6 +104,8 @@ $photos = $obj['photos'] ?? [];
         <img src="/<?= h($obj['dir']) ?>/thumb-<?= h($f) ?>" alt="">
         <span class="n"><?= $i + 1 ?></span>
         <?php if ($i === 0): ?><span class="cover">обложка</span><?php endif; ?>
+        <button class="mv" type="button" data-d="-1" title="Сдвинуть влево">◀</button>
+        <button class="mv" type="button" data-d="1" title="Сдвинуть вправо">▶</button>
         <button class="x" type="button">удалить</button>
       </div>
     <?php endforeach; ?>
@@ -156,6 +158,16 @@ grid?.addEventListener('click', async e => {
   const r = await fetch('actions.php', { method: 'POST', body: fd });
   const j = await r.json();
   if (j.ok) location.reload(); else alert('Ошибка: ' + (j.error || ''));
+});
+
+/* ── порядок стрелками (работает и на телефоне) ── */
+grid?.addEventListener('click', e => {
+  const b = e.target.closest('.mv'); if (!b) return;
+  const card = b.closest('.ph'), d = +b.dataset.d;
+  const sib = d < 0 ? card.previousElementSibling : card.nextElementSibling;
+  if (!sib) return;
+  d < 0 ? grid.insertBefore(card, sib) : grid.insertBefore(sib, card);
+  saveOrder();
 });
 
 /* ── порядок перетаскиванием ── */

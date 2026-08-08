@@ -58,7 +58,7 @@ if (($_GET['del'] ?? '') !== '') {
       <td class="cover"><?php if ($cover): ?><img src="<?= h($cover) ?>" alt=""><?php endif; ?></td>
       <td class="nm"><?= h($o['name'] ?? '(без названия)') ?></td>
       <td class="meta"><?= h(implode(' · ', array_slice($meta, 0, 3))) ?></td>
-      <td class="meta"><?= count($o['photos'] ?? []) ?></td>
+      <td class="meta cnt"><?= count($o['photos'] ?? []) ?></td>
       <td class="act">
         <a class="btn sm ghost" href="edit.php?set=<?= $set ?>&slug=<?= urlencode($o['slug']) ?>">Редактировать</a>
         <a class="btn sm danger" href="list.php?set=<?= $set ?>&del=<?= urlencode($o['slug']) ?>"

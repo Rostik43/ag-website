@@ -74,3 +74,46 @@ footer.bot{border-top:1px solid var(--line);margin-top:60px;padding:22px 0;color
 .ph .pf input:last-child{margin-bottom:0;color:var(--mut)}
 td form{margin:0}
 input[type=file]{width:100%;font:400 13px 'Golos Text';padding:8px 0}
+
+/* ─── Телефон ─── */
+@media (max-width: 720px){
+  .wrap{padding:0 16px}
+  /* шапка не «прилипает» и не съедает пол-экрана: разделы — одной прокручиваемой строкой */
+  header.top{position:static}
+  header.top .wrap{flex-direction:column;align-items:flex-start;gap:10px}
+  nav.sections{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:6px;gap:16px}
+  nav.sections a{font-size:11px;white-space:nowrap}
+  h1{margin:24px 0 8px}
+
+  /* таблицы не помещаются по ширине — разворачиваем строки в карточки */
+  table{display:block}
+  table tr:first-child th{display:none}
+  table tbody,table tr,table td{display:block;width:100%}
+  table tr{border-bottom:1px solid var(--line);padding:14px 0}
+  tr:hover td{background:transparent}
+  table td{border:0;padding:3px 0}
+  td.cover img{width:84px;height:84px;margin-bottom:6px}
+  td.nm{font-size:16px}
+  td.act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;text-align:left;white-space:normal}
+  td form{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .btn{padding:11px 16px}
+
+  .photos{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .grid2{grid-template-columns:1fr}
+}
+
+/* стрелки перестановки на карточке фото */
+.ph .mv{position:absolute;bottom:6px;background:#fff;border:1px solid var(--line);color:var(--ink);font-size:13px;line-height:1;padding:6px 9px;cursor:pointer}
+.ph .mv[data-d="-1"]{left:6px}
+.ph .mv[data-d="1"]{left:44px}
+.ph .mv:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media (max-width:720px){
+  td.cnt::before{content:'Фотографий: ';color:var(--mut)}
+  .ph .x{position:static;display:block;width:100%;margin:0;border:0;border-top:1px solid var(--line);padding:10px}
+  .ph .mv{bottom:44px}
+}
+
+/* в карточках команды стрелки поверх фото, кнопки-удаления там нет */
+.ph.card-p .mv{bottom:auto;top:6px}
+.ph.card-p .mv[data-d="-1"]{left:6px}
+.ph.card-p .mv[data-d="1"]{left:44px}

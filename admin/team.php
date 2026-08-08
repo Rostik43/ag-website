@@ -130,7 +130,7 @@ $v = time();
   </form>
 
   <h2>Список</h2>
-  <p class="hint">Порядок меняется перетаскиванием карточек. После изменений нажмите «Сохранить всё».</p>
+  <p class="hint">Порядок меняется перетаскиванием карточек или стрелками ◀ ▶. После изменений нажмите «Сохранить всё».</p>
   <form method="post" id="teamForm">
     <input type="hidden" name="action" value="save">
     <input type="hidden" name="order" id="order">
@@ -138,6 +138,8 @@ $v = time();
       <?php foreach ($team as $p): $s = $p['slug']; ?>
         <div class="ph card-p" draggable="true" data-s="<?= h($s) ?>">
           <img src="/assets/team/<?= h($s) ?>-bw.jpg?v=<?= $v ?>" alt="">
+          <button class="mv" type="button" data-d="-1" title="Сдвинуть влево">◀</button>
+          <button class="mv" type="button" data-d="1" title="Сдвинуть вправо">▶</button>
           <div class="pf">
             <input type="text" name="name[<?= h($s) ?>]" value="<?= h($p['name'] ?? '') ?>" placeholder="Имя">
             <input type="text" name="role[<?= h($s) ?>]" value="<?= h($p['role'] ?? '') ?>" placeholder="Должность">
@@ -176,6 +178,14 @@ $v = time();
 <footer class="bot"><div class="wrap">Изменения появляются на сайте сразу после сохранения</div></footer>
 <script>
 const grid = document.getElementById('teamGrid'), orderInput = document.getElementById('order');
+grid.addEventListener('click', e => {
+  const b = e.target.closest('.mv'); if (!b) return;
+  const card = b.closest('.ph'), d = +b.dataset.d;
+  const sib = d < 0 ? card.previousElementSibling : card.nextElementSibling;
+  if (!sib) return;
+  d < 0 ? grid.insertBefore(card, sib) : grid.insertBefore(sib, card);
+  sync();
+});
 let dragged = null;
 grid.addEventListener('dragstart', e => {
   if (e.target.tagName === 'INPUT') { e.preventDefault(); return; }
