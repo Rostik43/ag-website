@@ -60,6 +60,14 @@ if (!is_dir(LOG_DIR)) @mkdir(LOG_DIR, 0755, true);
 @file_put_contents(LOG_DIR . '/' . date('Y-m') . '.log',
     $body . "\n" . str_repeat('=', 60) . "\n\n", FILE_APPEND | LOCK_EX);
 
+// На локальной машине письма не отправляем — иначе тестовые заявки уходят заказчику
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isLocal = preg_match('/^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/', $host) === 1;
+if ($isLocal) {
+    @touch($stamp);
+    out(true);   // заявка записана в лог, письмо не отправляется
+}
+
 $headers = [
     'From: AG Project Group <' . MAIL_FROM . '>',
     'Reply-To: ' . $name . ' <' . $email . '>',
