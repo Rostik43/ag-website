@@ -68,3 +68,40 @@
   setTimeout(update, 100);
 })();
 
+/* ── 4. Уведомление о cookie ──
+   Показывается один раз, выбор запоминается в localStorage. */
+(function(){
+  var KEY = 'agpg_cookie_ok';
+  try { if (localStorage.getItem(KEY)) return; } catch(e) { return; }
+
+  var css = document.createElement('style');
+  css.textContent =
+    '#agCookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;background:#000;color:#fff;' +
+    'padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;' +
+    'font-family:"Golos Text",sans-serif;font-size:13px;line-height:1.55;max-width:820px;margin:0 auto;' +
+    'box-shadow:0 8px 40px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1)}' +
+    '#agCookie.on{transform:translateY(0)}' +
+    '#agCookie p{margin:0;flex:1 1 320px;color:#e6e6e2}' +
+    '#agCookie a{color:#fff;text-decoration:underline;text-underline-offset:3px}' +
+    '#agCookie button{background:#fff;color:#000;border:0;padding:12px 22px;font:600 12px/1 "Golos Text",sans-serif;' +
+    'letter-spacing:.14em;text-transform:uppercase;cursor:pointer;white-space:nowrap}' +
+    '#agCookie button:hover{background:#c9c9c4}' +
+    '@media(max-width:600px){#agCookie{padding:16px}#agCookie button{width:100%}}';
+  document.head.appendChild(css);
+
+  var box = document.createElement('div');
+  box.id = 'agCookie';
+  box.setAttribute('role', 'region');
+  box.setAttribute('aria-label', 'Уведомление о файлах cookie');
+  box.innerHTML = '<p>Сайт использует файлы cookie, чтобы запомнить ваш выбор, и собирает технические данные о посещении. ' +
+                  'Подробности — в <a href="privacy.html">политике обработки персональных данных</a>.</p>' +
+                  '<button type="button">Хорошо</button>';
+  document.body.appendChild(box);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.classList.add('on'); }); });
+
+  box.querySelector('button').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, '1'); } catch(e) {}
+    box.classList.remove('on');
+    setTimeout(function(){ box.remove(); }, 500);
+  });
+})();
