@@ -33,35 +33,53 @@ def is_finder(r, c, n):
     return ((r < 7 and c < 7) or (r < 7 and c >= n - 7) or (r >= n - 7 and c < 7))
 
 
-def logo_data_uri():
-    raw = (ROOT / 'assets/logo/logo-mono.png').read_bytes()
-    return 'data:image/png;base64,' + base64.b64encode(raw).decode()
+def logo_data_uri(name='logo-mono.png', white=False):
+    """Знак как data-URI. white=True перекрашивает чёрное в белое, сохраняя прозрачность."""
+    path = ROOT / 'assets/logo' / name
+    if not white:
+        return 'data:image/png;base64,' + base64.b64encode(path.read_bytes()).decode()
+    from PIL import Image
+    import io
+    im = Image.open(path).convert('RGBA')
+    r, g, b, a = im.split()
+    inv = Image.merge('RGBA', (r.point(lambda v: 255 - v),
+                               g.point(lambda v: 255 - v),
+                               b.point(lambda v: 255 - v), a))
+    buf = io.BytesIO(); inv.save(buf, 'PNG')
+    return 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
 
 
-def build_svg(with_logo=True, background=None, caption=None):
+def build_svg(with_logo=True, background=None, caption=None,
+              invert=False, logo='logo-mono.png', hole=None):
+    """invert=True — светлые модули на тёмном фоне (как в присланном примере)."""
+    from PIL import Image
+    ink   = '#ffffff' if invert else INK
+    paper = background if background else (INK if invert else None)
     m, version = matrix()
     n = len(m)
     size = n + QUIET * 2                      # в модулях
     o = QUIET                                 # отступ
+    HOLE_ = hole or HOLE
+    lw_, lh_ = Image.open(ROOT / 'assets/logo' / logo).size
 
     # Вырубка повторяет пропорции монограммы (1176×959), поэтому знак крупнее,
     # а перекрытых модулей меньше, чем у квадратной вырубки.
-    ASPECT = 1176 / 959
-    hole_w = HOLE
-    hole_h = HOLE / ASPECT
+    ASPECT = lw_ / lh_
+    hole_w = HOLE_
+    hole_h = HOLE_ / ASPECT
     hx = (n - hole_w) / 2 + o
     hy = (n - hole_h) / 2 + o
 
     parts = []
-    if background:
-        parts.append(f'<rect width="{size}" height="{size}" fill="{background}"/>')
+    if paper:
+        parts.append(f'<rect width="{size}" height="{size}" fill="{paper}"/>')
 
     # 1. Поисковые узоры — цельными фигурами, так они выглядят чище
     for (fr, fc) in [(0, 0), (0, n - 7), (n - 7, 0)]:
         x, y = fc + o, fr + o
         parts.append(
-            f'<path d="M{x} {y}h7v7h-7z M{x+1} {y+1}v5h5v-5z" fill="{INK}" fill-rule="evenodd"/>'
-            f'<rect x="{x+2}" y="{y+2}" width="3" height="3" fill="{INK}"/>')
+            f'<path d="M{x} {y}h7v7h-7z M{x+1} {y+1}v5h5v-5z" fill="{ink}" fill-rule="evenodd"/>'
+            f'<rect x="{x+2}" y="{y+2}" width="3" height="3" fill="{ink}"/>')
 
     # 2. Остальные модули
     mods = []
@@ -73,7 +91,7 @@ def build_svg(with_logo=True, background=None, caption=None):
             if with_logo and hx - 0.01 <= x < hx + hole_w and hy - 0.01 <= y < hy + hole_h:
                 continue                       # место под монограмму
             mods.append(f'M{x} {y}h1v1h-1z')
-    parts.append(f'<path d="{"".join(mods)}" fill="{INK}"/>')
+    parts.append(f'<path d="{"".join(mods)}" fill="{ink}"/>')
 
     # 3. Монограмма в центре
     if with_logo:
@@ -81,9 +99,9 @@ def build_svg(with_logo=True, background=None, caption=None):
         lw = hole_w - pad * 2
         lh = lw / ASPECT
         parts.append(f'<rect x="{hx:.4f}" y="{hy:.4f}" width="{hole_w:.4f}" height="{hole_h:.4f}" '
-                     f'fill="{background or PAPER}"/>')
+                     f'fill="{paper or PAPER}"/>')
         parts.append(
-            f'<image href="{logo_data_uri()}" x="{hx + pad:.4f}" y="{hy + (hole_h - lh) / 2:.4f}" '
+            f'<image href="{logo_data_uri(logo, white=invert)}" x="{hx + pad:.4f}" y="{hy + (hole_h - lh) / 2:.4f}" '
             f'width="{lw:.4f}" height="{lh:.4f}" preserveAspectRatio="xMidYMid meet"/>')
 
     height = size
@@ -98,10 +116,10 @@ def build_svg(with_logo=True, background=None, caption=None):
         t_path, t_w = text_path(BARLOW, title, 2.6, 0.02)
         s_path, s_w = text_path(GOLOS,  sub,   1.3, 0.22)
         extra = (
-            f'<g transform="translate({(size - t_w) / 2:.4f} {size + 3.1:.4f})" fill="{INK}">{t_path}</g>'
-            f'<g transform="translate({(size - s_w) / 2:.4f} {size + 5.9:.4f})" fill="#5e5e5e">{s_path}</g>')
-        if background:
-            parts.insert(0, f'<rect width="{size}" height="{height}" fill="{background}"/>')
+            f'<g transform="translate({(size - t_w) / 2:.4f} {size + 3.1:.4f})" fill="{ink}">{t_path}</g>'
+            f'<g transform="translate({(size - s_w) / 2:.4f} {size + 5.9:.4f})" fill="{"#c9c9c4" if invert else "#5e5e5e"}">{s_path}</g>')
+        if paper:
+            parts.insert(0, f'<rect width="{size}" height="{height}" fill="{paper}"/>')
             parts.pop(1)
 
     return (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
@@ -118,6 +136,12 @@ if __name__ == '__main__':
         'qr-contact-plain.svg':      dict(with_logo=False, background=None),
         'qr-contact-card.svg':       dict(with_logo=True,  background=PAPER,
                                           caption=('AG PROJECT GROUP', 'КОНТАКТЫ · AG-PG.RU')),
+        # Обратная полярность — как в присланном примере
+        'qr-contact-invert.svg':     dict(with_logo=True, invert=True, logo='logo-full.png', hole=10),
+        'qr-contact-white.svg':      dict(with_logo=True, invert=True, logo='logo-full.png', hole=10,
+                                          background='none'),
+        # Правильная полярность, но с полным логотипом в центре
+        'qr-contact-full.svg':       dict(with_logo=True, background=PAPER, logo='logo-full.png', hole=10),
     }
     for name, kw in variants.items():
         svg, version, n = build_svg(**kw)
