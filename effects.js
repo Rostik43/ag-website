@@ -93,7 +93,7 @@
   box.id = 'agCookie';
   box.setAttribute('role', 'region');
   box.setAttribute('aria-label', 'Уведомление о файлах cookie');
-  box.innerHTML = '<p>Сайт использует файлы cookie, чтобы запомнить ваш выбор, и собирает технические данные о посещении. ' +
+  box.innerHTML = '<p>Сайт использует файлы cookie и Яндекс.Метрику, чтобы понимать, как им пользуются, и делать его удобнее. ' +
                   'Подробности — в <a href="privacy.html">политике обработки персональных данных</a>.</p>' +
                   '<button type="button">Хорошо</button>';
   document.body.appendChild(box);
