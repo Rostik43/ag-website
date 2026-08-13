@@ -164,7 +164,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-<script src="team-data.js?v=202608071200"></script>
+<script src="data.php?f=team"></script>
 <script>
   (function(){
     const grid = document.getElementById('teamGrid'), team = window.AG_TEAM || [];
@@ -183,7 +183,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     grid.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('active'));
   })();
 </script>
-<script src="texts-data.js?v=202608071200"></script>
+<script src="data.php?f=texts"></script>
 <script>
   (function(){
     const T = window.AG_TEXTS || {};
@@ -202,7 +202,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     });
   })();
 </script>
-<script src="effects.js" defer></script>
+<script src="effects.js?v=20260813" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
   if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{

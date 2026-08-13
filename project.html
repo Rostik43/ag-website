@@ -101,10 +101,10 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   <img id="lightboxImg" class="max-w-full max-h-full object-contain" src="" alt="">
   <button id="lightboxClose" class="absolute top-5 right-6 text-white material-symbols-outlined" style="font-size:34px" aria-label="Закрыть">close</button>
 </div>
-<script src="projects-data.js?v=202608031957"></script>
-<script src="consortium-data.js?v=202608031957"></script>
-<script src="design-data.js?v=202608031957"></script>
-<script src="konkurs-data.js?v=202608031957"></script>
+<script src="data.php?f=projects"></script>
+<script src="data.php?f=consortium"></script>
+<script src="data.php?f=design"></script>
+<script src="data.php?f=konkurs"></script>
 <script>
 (function(){
   const MAIN=window.AG_PROJECTS||[], CONS=window.AG_CONSORTIUM||[], DES=window.AG_DESIGN||[], KON=window.AG_KONKURS||[];
@@ -227,7 +227,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 })();
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-<script src="texts-data.js?v=202608071200"></script>
+<script src="data.php?f=texts"></script>
 <script>
   (function(){
     const T = window.AG_TEXTS || {};
@@ -246,7 +246,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     });
   })();
 </script>
-<script src="effects.js" defer></script>
+<script src="effects.js?v=20260813" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
   if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{

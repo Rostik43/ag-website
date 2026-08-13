@@ -121,7 +121,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
   document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 </script>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-<script src="texts-data.js?v=202608071200"></script>
+<script src="data.php?f=texts"></script>
 <script>
   (function(){
     const T = window.AG_TEXTS || {};
@@ -140,7 +140,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     });
   })();
 </script>
-<script src="effects.js" defer></script>
+<script src="effects.js?v=20260813" defer></script>
 <script>
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
   if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{
@@ -149,7 +149,7 @@ tailwind.config = {darkMode:"class",theme:{extend:{
     document.body.style.overflow=open?'hidden':'';
   });}
 </script>
-<script src="consortium-data.js?v=202608031957"></script>
+<script src="data.php?f=consortium"></script>
 <script>
 (function(){
   const P=(window.AG_CONSORTIUM||[]).filter(p=>p.photos&&p.photos.length), g=document.getElementById('kgrid'); if(!g)return;

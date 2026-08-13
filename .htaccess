@@ -26,26 +26,7 @@ ErrorDocument 404 /404.html
 
 AddDefaultCharset UTF-8
 
-# ── Файлы, которые меняются из админки ──
-# Хостинг по умолчанию кеширует .js на 45 дней. Для данных это недопустимо:
-# бюро сохраняет правку, а посетитель видит старое содержимое неделями.
-<FilesMatch "-data\.js$">
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 5 minutes"
-  </IfModule>
-  <IfModule mod_headers.c>
-    Header set Cache-Control "max-age=300, must-revalidate"
-  </IfModule>
-</FilesMatch>
-
-# Скрипт эффектов правится редко, но обновление должно доходить за час, а не за месяц
-<FilesMatch "^effects\.js$">
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 1 hour"
-  </IfModule>
-  <IfModule mod_headers.c>
-    Header set Cache-Control "max-age=3600, must-revalidate"
-  </IfModule>
-</FilesMatch>
+# ── Кеш файлов данных ──
+# Здесь ничего не настроить: nginx отдаёт .js напрямую, минуя Apache,
+# и вешает свой кеш на 45 дней. Поэтому данные ходят через data.php,
+# а effects.js подключается с версией в адресе.
