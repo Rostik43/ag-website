@@ -126,7 +126,12 @@ tailwind.config = {darkMode:"class",theme:{extend:{
       if (v == null || v === '') return;
       el.innerHTML = String(v).replace(/\n/g, '<br>');
       const href = el.getAttribute('href') || '';
-      if (href.startsWith('tel:')) el.setAttribute('href', 'tel:' + String(v).replace(/[^\d+]/g, ''));
+      // В поле может быть несколько номеров через «;» — ссылка ведёт на первый,
+      // иначе из всех сразу получается несуществующий номер.
+      if (href.startsWith('tel:')) {
+        var first = String(v).split(/[;\n\/]/)[0];
+        el.setAttribute('href', 'tel:' + first.replace(/[^\d+]/g, ''));
+      }
       if (href.startsWith('mailto:')) el.setAttribute('href', 'mailto:' + String(v).trim());
     });
   })();
