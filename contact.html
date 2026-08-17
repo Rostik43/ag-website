@@ -149,6 +149,8 @@ tailwind.config = {darkMode:"class",theme:{extend:{
         </div>
         <form id="contactForm" class="space-y-8" action="send.php" method="POST">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="pass" id="fPass" value="">
           <div>
             <label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block mb-2" for="fName">Имя и фамилия</label>
             <input id="fName" name="name" type="text" placeholder="ИМЯ И ФАМИЛИЯ" required/>
@@ -228,6 +230,11 @@ tailwind.config = {darkMode:"class",theme:{extend:{
 <script>
 (function(){
   const f=document.getElementById('contactForm'); if(!f) return;
+  // Пропуск выдаётся сервером при открытии страницы: бот, который шлёт запрос
+  // напрямую, минуя сайт, его не получит и будет отсеян.
+  fetch('send.php?pass=1').then(r=>r.json()).then(j=>{
+    const p=document.getElementById('fPass'); if(p&&j.pass) p.value=j.pass;
+  }).catch(()=>{});
   const ok=document.getElementById('formOk'), btn=document.getElementById('formBtn');
   f.addEventListener('submit', async e=>{
     e.preventDefault();
